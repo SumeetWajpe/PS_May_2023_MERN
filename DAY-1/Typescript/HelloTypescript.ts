@@ -226,3 +226,15 @@ class Person implements IPerson {
     console.log("Walking");
   }
 }
+
+// Generics - Array, Class, Interface, Method
+var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
+
+function Swap<T,V>(x: T, y: T) {
+  let temp: T;
+  temp = x;
+  x = y;
+  y = temp;
+}
+
+Swap<number,string>(50,70);

@@ -86,3 +86,12 @@ class Person {
         console.log("Walking");
     }
 }
+// Generics - Array, Class, Interface, Method
+var cars = new Array("BMW", "AUDI", "MERC"); // ts way
+function Swap(x, y) {
+    let temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+Swap(50, 70);
