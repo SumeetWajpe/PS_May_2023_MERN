@@ -82,4 +82,7 @@ let i;
 // let i: number; // Error
 const PI = 3.14;
 class Person {
+    walk() {
+        console.log("Walking");
+    }
 }

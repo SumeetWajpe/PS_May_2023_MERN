@@ -210,14 +210,19 @@ const PI = 3.14;
 // }
 
 // var enhanceCarObj = new EnhancedCar();
-
-interface IPerson {
+interface IHomoSapien {
+  isHuman: boolean;
+}
+interface IPerson extends IHomoSapien {
   name: string;
   country?: string;
-  walk?: () => void;
+  walk: () => void;
 }
 
 class Person implements IPerson {
+  isHuman: boolean;
   name: string;
-  
+  walk(): void {
+    console.log("Walking");
+  }
 }
