@@ -73,10 +73,10 @@ x = 100;
 // var eObj = new Emp();
 // console.log(eObj.salary);
 // let & const - ES6 - Block Scoping
-if (true) {
-    let x = 1000;
-}
-console.log(x);
+// if (true) {
+//   let x = 1000;
+// }
+// console.log(x);
 let i;
 // 100 lines
 // let i: number; // Error
@@ -86,12 +86,20 @@ const PI = 3.14;
 // var cars = ["BMW", "AUDI", "MERC"]; // js
 // var cars: string[] = ["BMW", "AUDI", "MERC"];// ts way
 // OR - Generics
-var cars = new Array("BMW", "AUDI", "MERC"); // ts way
-// Spread Operator (ES6) - Arrays
-var moreCars = ["TATA", "MAHINDRA"];
-var allCars = [...cars, ...moreCars];
-console.log(allCars);
+// var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
+// // Spread Operator (ES6) - Arrays
+// var moreCars: string[] = ["TATA", "MAHINDRA"];
+// var allCars: string[] = [...cars, ...moreCars];
+// console.log(allCars);
 // Spread Operator - Objects
-var person = { name: "Djokovic", country: "Serbia" };
-var player = Object.assign(Object.assign({}, person), { sport: "Tennis", country: "SRB" });
-console.log(player);
+// var person = { name: "Djokovic", country: "Serbia" };
+// var player = { ...person, sport: "Tennis", country: "SRB" };
+// console.log(player);
+// Destructuring - ES6
+// With Arrays
+var cars = ["BMW", "AUDI", "MERC"]; // ts way
+// let firstCar: string = cars[0];
+// let secondCar: string = cars[1];
+// OR
+let [firstCar, , secondCar] = cars;
+console.log(secondCar);
