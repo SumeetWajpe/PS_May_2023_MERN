@@ -15,14 +15,14 @@ var x;
 x = "Hi";
 x = 100;
 // Functions
-function Add(x, y) {
-    if (x == 0) {
-        return "x cannot be zero !";
-    }
-    return x + y;
-}
-var result = Add(20, 30);
-console.log(result);
+// function Add(x: number, y: number): number | string {
+//   if (x == 0) {
+//     return "x cannot be zero !";
+//   }
+//   return x + y;
+// }
+// let result: string | number = Add(20, 30);
+// console.log(result);
 // Add("Hello", "World !"); // Error !
 // Parameters of Functions
 //1. Optional Parameters
@@ -41,13 +41,17 @@ console.log(result);
 // PrintBook(undefined, "Dummy");
 // PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
 // 3. Rest parameters
-function PrintBook(author) {
-    var titles = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        titles[_i - 1] = arguments[_i];
-    }
-    console.log(author, titles);
-}
-PrintBook("Dr. APJ Abdul Kalam", "Wings of fire", "India 2020");
-PrintBook("Sachin Tendulkar", "Playing It My Way");
-PrintBook("Dummy");
+// function PrintBook(author: string, ...titles: string[]) {
+//   console.log(author, titles);
+// }
+// PrintBook("Dr. APJ Abdul Kalam", "Wings of fire", "India 2020");
+// PrintBook("Sachin Tendulkar", "Playing It My Way");
+// PrintBook("Dummy");
+// Function as an expression
+// var Add = function (x: number, y: number) {
+//   return x + y;
+// };
+// Arrow Functions
+var Add = function (x, y) {
+    return x + y;
+};
