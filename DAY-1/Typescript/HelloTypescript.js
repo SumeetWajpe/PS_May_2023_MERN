@@ -52,6 +52,14 @@ x = 100;
 //   return x + y;
 // };
 // Arrow Functions
-var Add = function (x, y) {
-    return x + y;
-};
+// var Add = (x: number, y: number): number => {
+//   return x + y;
+// };
+// OR
+var Add = function (x, y) { return x + y; };
+var cars = ["BMW", "AUDI", "MERC"];
+// cars.forEach(function (car) {
+//   console.log(car);
+// });
+// OR
+cars.forEach(function (car) { return console.log(car); });
