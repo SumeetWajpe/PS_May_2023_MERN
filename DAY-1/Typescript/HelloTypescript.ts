@@ -43,11 +43,21 @@ console.log(result);
 
 // 2. Default Parameters
 
-function PrintBook(author: string = "Unknown", title: string = "Unknown") {
-  //   author = author || "Unknown";
-  //   title = title || "Unknown"; // ES5 - Short circuiting
-  console.log(author, title);
+// function PrintBook(author: string = "Unknown", title: string = "Unknown") {
+//   //   author = author || "Unknown";
+//   //   title = title || "Unknown"; // ES5 - Short circuiting
+//   console.log(author, title);
+// }
+
+// PrintBook();
+// PrintBook(undefined, "Dummy");
+// PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
+
+// 3. Rest parameters
+function PrintBook(author: string, ...titles: string[]) {
+  console.log(author, titles);
 }
 
-PrintBook();
-PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
+PrintBook("Dr. APJ Abdul Kalam", "Wings of fire", "India 2020");
+PrintBook("Sachin Tendulkar", "Playing It My Way");
+PrintBook("Dummy");

@@ -32,12 +32,22 @@ console.log(result);
 // PrintBook("Dummy");
 // PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", 300);
 // 2. Default Parameters
-function PrintBook(author, title) {
-    if (author === void 0) { author = "Unknown"; }
-    if (title === void 0) { title = "Unknown"; }
-    //   author = author || "Unknown";
-    //   title = title || "Unknown"; // ES5 - Short circuiting
-    console.log(author, title);
+// function PrintBook(author: string = "Unknown", title: string = "Unknown") {
+//   //   author = author || "Unknown";
+//   //   title = title || "Unknown"; // ES5 - Short circuiting
+//   console.log(author, title);
+// }
+// PrintBook();
+// PrintBook(undefined, "Dummy");
+// PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
+// 3. Rest parameters
+function PrintBook(author) {
+    var titles = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        titles[_i - 1] = arguments[_i];
+    }
+    console.log(author, titles);
 }
-PrintBook();
-PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
+PrintBook("Dr. APJ Abdul Kalam", "Wings of fire", "India 2020");
+PrintBook("Sachin Tendulkar", "Playing It My Way");
+PrintBook("Dummy");
