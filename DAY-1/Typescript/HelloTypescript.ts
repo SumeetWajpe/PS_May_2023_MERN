@@ -279,4 +279,5 @@ enum Designations {
 }
 
 var designation = Designations.Trainer;
-console.log(designation);
+// console.log(designation);//300
+console.log(Designations[designation]);

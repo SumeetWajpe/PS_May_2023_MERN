@@ -99,4 +99,5 @@ var Designations;
     Designations[Designations["CEO"] = 302] = "CEO";
 })(Designations || (Designations = {}));
 var designation = Designations.Trainer;
-console.log(designation);
+// console.log(designation);//300
+console.log(Designations[designation]);
