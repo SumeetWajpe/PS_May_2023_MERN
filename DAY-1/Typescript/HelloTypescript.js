@@ -82,3 +82,12 @@ let i;
 // let i: number; // Error
 const PI = 3.14;
 // PI = 3.1456; // Error
+// Arrays
+// var cars = ["BMW", "AUDI", "MERC"]; // js
+// var cars: string[] = ["BMW", "AUDI", "MERC"];// ts way
+// OR - Generics
+var cars = new Array("BMW", "AUDI", "MERC"); // ts way
+// Spread Operator (ES6)
+var moreCars = ["TATA", "MAHINDRA"];
+var allCars = [...cars, ...moreCars];
+console.log(allCars);

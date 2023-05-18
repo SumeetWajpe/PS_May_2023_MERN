@@ -107,3 +107,13 @@ let i: number;
 
 const PI = 3.14;
 // PI = 3.1456; // Error
+
+// Arrays
+// var cars = ["BMW", "AUDI", "MERC"]; // js
+// var cars: string[] = ["BMW", "AUDI", "MERC"];// ts way
+// OR - Generics
+var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
+// Spread Operator (ES6)
+var moreCars: string[] = ["TATA", "MAHINDRA"];
+var allCars: string[] = [...cars, ...moreCars];
+console.log(allCars);
