@@ -230,11 +230,11 @@ class Person implements IPerson {
 // Generics - Array, Class, Interface, Method
 var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
 
-function Swap<T,V>(x: T, y: T) {
+function Swap<T>(x: T, y: T) {
   let temp: T;
   temp = x;
   x = y;
   y = temp;
 }
 
-Swap<number,string>(50,70);
+Swap<number>(50,70);
