@@ -56,10 +56,19 @@ x = 100;
 //   return x + y;
 // };
 // OR
-var Add = function (x, y) { return x + y; };
-var cars = ["BMW", "AUDI", "MERC"];
+// var Add = (x: number, y: number): number => x + y;
+// var cars = ["BMW", "AUDI", "MERC"];
 // cars.forEach(function (car) {
 //   console.log(car);
 // });
 // OR
-cars.forEach(function (car) { return console.log(car); });
+// cars.forEach((car: string) => console.log(car));
+// var Test = () => console.log("Testing 1 2 3..");
+function Emp() {
+    this.salary = 200000;
+    setTimeout(function () {
+        console.log(this.salary);
+    }, 2000);
+}
+var eObj = new Emp();
+// console.log(eObj.salary);
