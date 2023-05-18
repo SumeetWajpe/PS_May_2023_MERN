@@ -159,8 +159,26 @@ const PI = 3.14;
 // }
 // var person: IPerson = { name: "Djokovic", country: "Serbia", xyz: 123 };
 
-type Person = {
+// type Person = {
+//   name: string;
+//   country: string;
+// };
+// var person: Person = { name: "Djokovic", country: "Serbia", xyz: 123 };
+
+//Classes
+class Car {
+  private id: number; // private | public | protected
   name: string;
-  country: string;
-};
-var person: Person = { name: "Djokovic", country: "Serbia", xyz: 123 };
+  speed: number;
+
+  constructor(name: string, speed: number) {
+    this.name = name;
+    this.speed = speed;
+  }
+  accelerate(): string {
+    return "The car " + this.name + " is running at " + this.speed + " kmph !";
+  }
+}
+
+var carObj = new Car("BMW", 200);
+console.log(carObj.accelerate());
