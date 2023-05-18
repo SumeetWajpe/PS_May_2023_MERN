@@ -81,41 +81,4 @@ let i;
 // 100 lines
 // let i: number; // Error
 const PI = 3.14;
-// PI = 3.1456; // Error
-// Arrays
-// var cars = ["BMW", "AUDI", "MERC"]; // js
-// var cars: string[] = ["BMW", "AUDI", "MERC"];// ts way
-// OR - Generics
-// var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
-// // Spread Operator (ES6) - Arrays
-// var moreCars: string[] = ["TATA", "MAHINDRA"];
-// var allCars: string[] = [...cars, ...moreCars];
-// console.log(allCars);
-// Spread Operator - Objects
-// var person = { name: "Djokovic", country: "Serbia" };
-// var player = { ...person, sport: "Tennis", country: "SRB" };
-// console.log(player);
-// Destructuring - ES6
-// With Arrays
-// var cars: string[] = ["BMW", "AUDI", "MERC"]; // ts way
-// // let firstCar: string = cars[0];
-// // let secondCar: string = cars[1];
-// // OR
-// let [firstCar, ,secondCar] = cars;
-// console.log(secondCar);
-// Destructuring - ES6
-// With Objects
-var player = {
-    lname: "Djokovic",
-    country: "Serbia",
-    sport: "Tennis",
-};
-// let lname: string = player.lname;
-// let country: string = player.country;
-// let { lname, country } = player;
-// console.log(lname);
-var person = { name: "Djokovic", country: "Serbia" };
-function PrintPerson({ name, country }) {
-    console.log(name + " lives in " + country);
-}
-PrintPerson(person);
+var person = { name: "Djokovic", country: "Serbia", xyz: 123 };

@@ -133,23 +133,34 @@ const PI = 3.14;
 // let [firstCar, ,secondCar] = cars;
 // console.log(secondCar);
 
-
 // Destructuring - ES6
 // With Objects
-var player = {
-  lname: "Djokovic",
-  country: "Serbia",
-  sport: "Tennis",
-};
+// var player = {
+//   lname: "Djokovic",
+//   country: "Serbia",
+//   sport: "Tennis",
+// };
 // let lname: string = player.lname;
 // let country: string = player.country;
 // let { lname, country } = player;
 // console.log(lname);
 
-var person = { name: "Djokovic", country: "Serbia" };
+// var person = { name: "Djokovic", country: "Serbia" };
 
-function PrintPerson({ name, country }) {
-  console.log(name + " lives in " + country);
-}
+// function PrintPerson({ name, country }) {
+//   console.log(name + " lives in " + country);
+// }
+// PrintPerson(person);
 
-PrintPerson(person);
+// Interfaces
+// interface IPerson {
+//   name: string;
+//   country: string;
+// }
+// var person: IPerson = { name: "Djokovic", country: "Serbia", xyz: 123 };
+
+type Person = {
+  name: string;
+  country: string;
+};
+var person: Person = { name: "Djokovic", country: "Serbia", xyz: 123 };
