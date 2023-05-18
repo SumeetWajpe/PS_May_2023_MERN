@@ -64,11 +64,21 @@ x = 100;
 // OR
 // cars.forEach((car: string) => console.log(car));
 // var Test = () => console.log("Testing 1 2 3..");
-function Emp() {
-    this.salary = 200000;
-    setTimeout(function () {
-        console.log(this.salary);
-    }, 2000);
-}
-var eObj = new Emp();
+// function Emp() {
+//   this.salary = 200000;
+//   setTimeout(function () {
+//     console.log(this.salary);
+//   }, 2000);
+// }
+// var eObj = new Emp();
 // console.log(eObj.salary);
+// let & const - ES6 - Block Scoping
+if (true) {
+    let x = 1000;
+}
+console.log(x);
+let i;
+// 100 lines
+// let i: number; // Error
+const PI = 3.14;
+// PI = 3.1456; // Error
