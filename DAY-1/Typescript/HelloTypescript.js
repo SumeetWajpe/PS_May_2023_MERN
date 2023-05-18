@@ -16,8 +16,18 @@ x = "Hi";
 x = 100;
 // Functions
 function Add(x, y) {
+    if (x == 0) {
+        return "x cannot be zero !";
+    }
     return x + y;
 }
 var result = Add(20, 30);
 console.log(result);
 // Add("Hello", "World !"); // Error !
+// Parameters of Functions
+//1. Optional Parameters
+function PrintBook(author, title, noOfPages) {
+    console.log(author, title, noOfPages);
+}
+PrintBook("Dummy");
+PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", 300);

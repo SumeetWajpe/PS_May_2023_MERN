@@ -30,3 +30,13 @@ function Add(x: number, y: number): number | string {
 let result: string | number = Add(20, 30);
 console.log(result);
 // Add("Hello", "World !"); // Error !
+
+// Parameters of Functions
+//1. Optional Parameters
+
+function PrintBook(author: string, title?: string, noOfPages?: number) {
+  console.log(author, title, noOfPages);
+}
+
+PrintBook("Dummy");
+PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", 300);
