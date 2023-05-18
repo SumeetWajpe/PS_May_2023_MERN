@@ -166,40 +166,58 @@ const PI = 3.14;
 // var person: Person = { name: "Djokovic", country: "Serbia", xyz: 123 };
 
 //Classes
-class Car {
-  private id: number; // private | public | protected
-  name: string;
-  speed: number;
+// class Car {
+//   private id: number; // private | public | protected
+//   name: string;
+//   speed: number;
 
-  constructor(name: string = "BMW", speed: number = 200) {
-    this.name = name;
-    this.speed = speed;
-  }
-  accelerate(): string {
-    return "The car " + this.name + " is running at " + this.speed + " kmph !";
-  }
-}
+//   constructor(name: string = "BMW", speed: number = 200) {
+//     this.name = name;
+//     this.speed = speed;
+//   }
+//   accelerate(): string {
+//     return "The car " + this.name + " is running at " + this.speed + " kmph !";
+//   }
+// }
 
 // var carObj = new Car();
 // console.log(carObj.accelerate());
 
-class JamesBondCar extends Car {
-  static carMake: number = 1983;
-  canUseNitro: boolean;
-  constructor(name: string, speed: number, canUseNitro) {
-    super(name, speed);
-    this.canUseNitro = canUseNitro;
-  }
-  static GetCarMakeYear() {
-    console.log(this);
-    return this.carMake;
-  }
-  accelerate(): string {
-    return super.accelerate() + " Can it use nitro power ? " + this.canUseNitro;
-  }
+// class JamesBondCar extends Car {
+//   static carMake: number = 1983;
+//   canUseNitro: boolean;
+//   constructor(name: string, speed: number, canUseNitro) {
+//     super(name, speed);
+//     this.canUseNitro = canUseNitro;
+//   }
+//   static GetCarMakeYear() {
+//     console.log(this);
+//     return this.carMake;
+//   }
+//   accelerate(): string {
+//     return super.accelerate() + " Can it use nitro power ? " + this.canUseNitro;
+//   }
+// }
+
+// var jbc = new JamesBondCar("Aston Martin", 300, true);
+// console.log(jbc.accelerate());
+// // console.log(JamesBondCar.carMake);
+// console.log(JamesBondCar.GetCarMakeYear());
+
+// // Enhanced Class Syntax
+// class EnhancedCar {
+//   constructor(public name: string = "AUDI", public speed: number = 300) {}
+// }
+
+// var enhanceCarObj = new EnhancedCar();
+
+interface IPerson {
+  name: string;
+  country?: string;
+  walk?: () => void;
 }
 
-var jbc = new JamesBondCar("Aston Martin", 300, true);
-console.log(jbc.accelerate());
-// console.log(JamesBondCar.carMake);
-console.log(JamesBondCar.GetCarMakeYear());
+class Person implements IPerson {
+  name: string;
+  
+}
