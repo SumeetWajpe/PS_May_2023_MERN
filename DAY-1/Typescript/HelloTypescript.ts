@@ -268,4 +268,15 @@ class Company<T extends IEmp> {}
 var companyObj = new Company<Emp>();
 var companyObj = new Company<Manager>();
 
-var companyObjTwo = new Company<number>();
+// var companyObjTwo = new Company<number>(); // Error
+
+enum Designations {
+  Developer = 100,
+  Tester = 200,
+  Trainer = 300,
+  Architect,
+  CEO,
+}
+
+var designation = Designations.Trainer;
+console.log(designation);

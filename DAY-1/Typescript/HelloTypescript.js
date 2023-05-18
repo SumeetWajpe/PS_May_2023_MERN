@@ -89,4 +89,14 @@ class Company {
 }
 var companyObj = new Company();
 var companyObj = new Company();
-var companyObjTwo = new Company();
+// var companyObjTwo = new Company<number>(); // Error
+var Designations;
+(function (Designations) {
+    Designations[Designations["Developer"] = 100] = "Developer";
+    Designations[Designations["Tester"] = 200] = "Tester";
+    Designations[Designations["Trainer"] = 300] = "Trainer";
+    Designations[Designations["Architect"] = 301] = "Architect";
+    Designations[Designations["CEO"] = 302] = "CEO";
+})(Designations || (Designations = {}));
+var designation = Designations.Trainer;
+console.log(designation);
