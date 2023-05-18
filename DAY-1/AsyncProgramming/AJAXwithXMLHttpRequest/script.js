@@ -6,7 +6,7 @@ function GetData(callback) {
   //5. Get the reponse & use it
 
   let xmlHttpReq = new XMLHttpRequest();
-  xmlHttpReq.open("GET", "https://jsonplaceholder.typicode.com/postsss");
+  xmlHttpReq.open("GET", "https://jsonplaceholder.typicode.com/posts");
   xmlHttpReq.onreadystatechange = function () {
     if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {
       callback(null, xmlHttpReq.responseText);
