@@ -20,9 +20,13 @@ x = "Hi";
 x = 100;
 
 // Functions
-function Add(x: number, y: number) {
+function Add(x: number, y: number): number | string {
+  if (x == 0) {
+    return "x cannot be zero !";
+  }
   return x + y;
 }
 
-Add(20, 30);
+let result: string | number = Add(20, 30);
+console.log(result);
 // Add("Hello", "World !"); // Error !

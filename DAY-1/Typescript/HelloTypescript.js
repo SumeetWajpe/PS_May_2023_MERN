@@ -18,5 +18,6 @@ x = 100;
 function Add(x, y) {
     return x + y;
 }
-Add(20, 30);
-Add("Hello", "World !");
+var result = Add(20, 30);
+console.log(result);
+// Add("Hello", "World !"); // Error !
