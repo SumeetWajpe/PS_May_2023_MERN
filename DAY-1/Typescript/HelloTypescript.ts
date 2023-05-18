@@ -210,31 +210,62 @@ const PI = 3.14;
 // }
 
 // var enhanceCarObj = new EnhancedCar();
-interface IHomoSapien {
-  isHuman: boolean;
-}
-interface IPerson extends IHomoSapien {
-  name: string;
-  country?: string;
-  walk: () => void;
-}
+// interface IHomoSapien {
+//   isHuman: boolean;
+// }
+// interface IPerson extends IHomoSapien {
+//   name: string;
+//   country?: string;
+//   walk: () => void;
+// }
 
-class Person implements IPerson {
-  isHuman: boolean;
-  name: string;
-  walk(): void {
-    console.log("Walking");
-  }
-}
+// class Person implements IPerson {
+//   isHuman: boolean;
+//   name: string;
+//   walk(): void {
+//     console.log("Walking");
+//   }
+// }
 
 // Generics - Array, Class, Interface, Method
-var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
+// var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
 
-function Swap<T>(x: T, y: T) {
-  let temp: T;
-  temp = x;
-  x = y;
-  y = temp;
+// function Swap<T>(x: T, y: T) {
+//   let temp: T;
+//   temp = x;
+//   x = y;
+//   y = temp;
+// }
+
+// Swap<number>(50, 70);
+
+// class Point<T> {
+//   x: T;
+//   y: T;
+// }
+
+// var point: Point<number> = new Point<number>();
+
+// Constraints in Generics
+
+interface IEmp {
+  name: string;
+  country: string;
 }
 
-Swap<number>(50,70);
+class Emp implements IEmp {
+  name: string;
+  country: string;
+}
+
+class Manager implements IEmp {
+  name: string;
+  country: string;
+}
+
+class Company<T extends IEmp> {}
+
+var companyObj = new Company<Emp>();
+var companyObj = new Company<Manager>();
+
+var companyObjTwo = new Company<number>();

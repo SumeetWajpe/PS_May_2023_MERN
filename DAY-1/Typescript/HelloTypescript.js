@@ -81,17 +81,12 @@ let i;
 // 100 lines
 // let i: number; // Error
 const PI = 3.14;
-class Person {
-    walk() {
-        console.log("Walking");
-    }
+class Emp {
 }
-// Generics - Array, Class, Interface, Method
-var cars = new Array("BMW", "AUDI", "MERC"); // ts way
-function Swap(x, y) {
-    let temp;
-    temp = x;
-    x = y;
-    y = temp;
+class Manager {
 }
-Swap(50, 70);
+class Company {
+}
+var companyObj = new Company();
+var companyObj = new Company();
+var companyObjTwo = new Company();
