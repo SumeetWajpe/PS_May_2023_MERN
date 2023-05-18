@@ -147,6 +147,13 @@ class JamesBondCar extends Car {
         super(name, speed);
         this.canUseNitro = canUseNitro;
     }
+    static GetCarMakeYear() {
+        console.log(this);
+        return this.carMake;
+    }
 }
+JamesBondCar.carMake = 1983;
 var jbc = new JamesBondCar("Aston Martin", 300, true);
 console.log(jbc.accelerate());
+// console.log(JamesBondCar.carMake);
+console.log(JamesBondCar.GetCarMakeYear());
