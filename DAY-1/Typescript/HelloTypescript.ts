@@ -113,7 +113,12 @@ const PI = 3.14;
 // var cars: string[] = ["BMW", "AUDI", "MERC"];// ts way
 // OR - Generics
 var cars: Array<string> = new Array<string>("BMW", "AUDI", "MERC"); // ts way
-// Spread Operator (ES6)
+// Spread Operator (ES6) - Arrays
 var moreCars: string[] = ["TATA", "MAHINDRA"];
 var allCars: string[] = [...cars, ...moreCars];
 console.log(allCars);
+
+// Spread Operator - Objects
+var person = { name: "Djokovic", country: "Serbia" };
+var player = { ...person, sport: "Tennis", country: "SRB" };
+console.log(player);
