@@ -171,7 +171,7 @@ class Car {
   name: string;
   speed: number;
 
-  constructor(name: string, speed: number) {
+  constructor(name: string = "BMW", speed: number = 200) {
     this.name = name;
     this.speed = speed;
   }
@@ -180,5 +180,16 @@ class Car {
   }
 }
 
-var carObj = new Car("BMW", 200);
-console.log(carObj.accelerate());
+// var carObj = new Car();
+// console.log(carObj.accelerate());
+
+class JamesBondCar extends Car {
+  canUseNitro: boolean;
+  constructor(name: string, speed: number, canUseNitro) {
+    super(name, speed);
+    this.canUseNitro = canUseNitro;
+  }
+}
+
+var jbc = new JamesBondCar("Aston Martin", 300, true);
+console.log(jbc.accelerate());

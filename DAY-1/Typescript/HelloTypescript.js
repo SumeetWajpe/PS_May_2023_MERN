@@ -132,7 +132,7 @@ const PI = 3.14;
 // var person: Person = { name: "Djokovic", country: "Serbia", xyz: 123 };
 //Classes
 class Car {
-    constructor(name, speed) {
+    constructor(name = "BMW", speed = 200) {
         this.name = name;
         this.speed = speed;
     }
@@ -140,5 +140,13 @@ class Car {
         return "The car " + this.name + " is running at " + this.speed + " kmph !";
     }
 }
-var carObj = new Car("BMW", 200);
-console.log(carObj.accelerate());
+// var carObj = new Car();
+// console.log(carObj.accelerate());
+class JamesBondCar extends Car {
+    constructor(name, speed, canUseNitro) {
+        super(name, speed);
+        this.canUseNitro = canUseNitro;
+    }
+}
+var jbc = new JamesBondCar("Aston Martin", 300, true);
+console.log(jbc.accelerate());
