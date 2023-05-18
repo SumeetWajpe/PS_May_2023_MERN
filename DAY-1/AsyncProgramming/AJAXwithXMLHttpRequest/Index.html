@@ -7,8 +7,12 @@
     <title>Document</title>
     <script src="script.js"></script>
     <script>
-      GetData(function (postsJSON) {
-        console.log(postsJSON);
+      GetData(function (err, postsJSON) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(postsJSON);
+        }
       });
 
       console.log("Program Ended !");
