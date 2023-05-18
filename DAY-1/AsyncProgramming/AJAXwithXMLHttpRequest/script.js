@@ -1,4 +1,4 @@
-function GetData() {
+function GetData(callback) {
   //1. XMLHttpRequest object
   //2. open()
   //3. register for onreadystatechange event
@@ -9,7 +9,7 @@ function GetData() {
   xmlHttpReq.open("GET", "https://jsonplaceholder.typicode.com/posts");
   xmlHttpReq.onreadystatechange = function () {
     if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {
-      console.log(xmlHttpReq.responseText);
+       callback(xmlHttpReq.responseText);
     }
   };
   xmlHttpReq.send();
