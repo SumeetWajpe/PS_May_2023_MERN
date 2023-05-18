@@ -126,9 +126,30 @@ const PI = 3.14;
 // Destructuring - ES6
 // With Arrays
 
-var cars: string[] = ["BMW", "AUDI", "MERC"]; // ts way
-// let firstCar: string = cars[0];
-// let secondCar: string = cars[1];
-// OR
-let [firstCar, ,secondCar] = cars;
-console.log(secondCar);
+// var cars: string[] = ["BMW", "AUDI", "MERC"]; // ts way
+// // let firstCar: string = cars[0];
+// // let secondCar: string = cars[1];
+// // OR
+// let [firstCar, ,secondCar] = cars;
+// console.log(secondCar);
+
+
+// Destructuring - ES6
+// With Objects
+var player = {
+  lname: "Djokovic",
+  country: "Serbia",
+  sport: "Tennis",
+};
+// let lname: string = player.lname;
+// let country: string = player.country;
+// let { lname, country } = player;
+// console.log(lname);
+
+var person = { name: "Djokovic", country: "Serbia" };
+
+function PrintPerson({ name, country }) {
+  console.log(name + " lives in " + country);
+}
+
+PrintPerson(person);
