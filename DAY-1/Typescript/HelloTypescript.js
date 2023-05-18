@@ -26,8 +26,18 @@ console.log(result);
 // Add("Hello", "World !"); // Error !
 // Parameters of Functions
 //1. Optional Parameters
-function PrintBook(author, title, noOfPages) {
-    console.log(author, title, noOfPages);
+// function PrintBook(author: string, title?: string, noOfPages?: number) {
+//   console.log(author, title, noOfPages);
+// }
+// PrintBook("Dummy");
+// PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", 300);
+// 2. Default Parameters
+function PrintBook(author, title) {
+    if (author === void 0) { author = "Unknown"; }
+    if (title === void 0) { title = "Unknown"; }
+    //   author = author || "Unknown";
+    //   title = title || "Unknown"; // ES5 - Short circuiting
+    console.log(author, title);
 }
-PrintBook("Dummy");
-PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", 300);
+PrintBook();
+PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
