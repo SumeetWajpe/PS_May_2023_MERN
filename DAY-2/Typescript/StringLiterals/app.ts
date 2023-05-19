@@ -7,4 +7,4 @@ console.log(`The person ${person.name} is ${person.age} years old !`);
 let multiLineStr = `This is first Line !
 Second Line
 Last Liine !`;
-console.log(multiLineStr)
+console.log(multiLineStr);
