@@ -11,6 +11,15 @@
       aPromise.then(
         function (postsJSON) {
           console.log(postsJSON);
+          // convert it into javascript
+          // display data in DOM
+          let posts = JSON.parse(postsJSON); // converts JSON to javascript object
+          let ulList = document.querySelector("#postsList");
+          for (const post of posts) {
+            let newLi = document.createElement("li");
+            newLi.innerHTML = post.title;
+            ulList.append(newLi);
+          }
         },
         function (err) {
           console.log(err);
@@ -18,7 +27,15 @@
       );
 
       console.log("Program Ended !");
+      // 100 lines
     </script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>List of posts</h1>
+    </header>
+    <main>
+      <ul id="postsList"></ul>
+    </main>
+  </body>
 </html>
