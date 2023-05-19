@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "noEmitOnError": true,
+        "noImplicitAny": true
+    },
+    
+}
