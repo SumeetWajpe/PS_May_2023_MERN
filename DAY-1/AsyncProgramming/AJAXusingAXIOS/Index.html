@@ -27,8 +27,8 @@
         posts = [];
         getPosts() {
           let aPromise = GetData();
-          aPromise.then(
-            response => {
+          aPromise
+            .then(response => {
               console.log(response);
               this.posts = response.data;
               let ulList = document.querySelector("#postsList");
@@ -37,9 +37,10 @@
                 newLi.innerHTML = post.title;
                 ulList.append(newLi);
               }
-            },
-            function () {},
-          );
+            })
+            .catch(function (err) {
+              console.log("Error !");
+            });
         }
       }
 
