@@ -8,17 +8,51 @@
     <title>Document</title>
     <script src="GetData.js"></script>
     <script>
-      let aPromise = GetData();
-      aPromise.then(
-        function (response) {
-          console.log(response.data);
-          console.log(response.data.length);
-        },
-        function (err) {
-          console.log(err);
-        },
-      );
+      // let aPromise = GetData();
+      // aPromise.then(
+      //   function (response) {
+      //     console.log(response.data);
+      //     console.log(response.data.length);
+      //   },
+      //   function (err) {
+      //     console.log(err);
+      //   },
+      // );
+
+      // 1. Create a class Posts
+      // 2. Create a member method -> GetPosts() , create a member variable this.posts
+      // 3. GetPosts makes use of GetData() to set the member variable this.posts to response.data
+
+      class Posts {
+        posts = [];
+        getPosts() {
+          let aPromise = GetData();
+          aPromise.then(
+            response => {
+              console.log(response);
+              this.posts = response.data;
+              let ulList = document.querySelector("#postsList");
+              for (const post of this.posts) {
+                let newLi = document.createElement("li");
+                newLi.innerHTML = post.title;
+                ulList.append(newLi);
+              }
+            },
+            function () {},
+          );
+        }
+      }
+
+      var posts = new Posts();
+      posts.getPosts();
     </script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>List of posts</h1>
+    </header>
+    <main>
+      <ul id="postsList"></ul>
+    </main>
+  </body>
 </html>
