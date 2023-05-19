@@ -8,12 +8,18 @@
     <script src="GetData.js"></script>
     <script>
       async function GetPosts() {
-        let postsJSON = await GetData();
-        console.log(postsJSON);
+        try {
+          let postsJSON = await GetData();
+          console.log(postsJSON);
+        } catch (error) {
+          console.log(error);
+        }
       }
 
       GetPosts();
       console.log("Program Ended !");
+
+      // fetch api with async await
     </script>
   </head>
   <body></body>
