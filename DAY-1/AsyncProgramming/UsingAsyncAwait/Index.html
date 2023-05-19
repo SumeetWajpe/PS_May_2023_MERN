@@ -7,19 +7,28 @@
     <title>Document</title>
     <script src="GetData.js"></script>
     <script>
-      async function GetPosts() {
-        try {
-          let postsJSON = await GetData();
-          console.log(postsJSON);
-        } catch (error) {
-          console.log(error);
-        }
-      }
+      //   async function GetPosts() {
+      //     try {
+      //       let postsJSON = await GetData();
+      //       console.log(postsJSON);
+      //     } catch (error) {
+      //       console.log(error);
+      //     }
+      //   }
 
-      GetPosts();
-      console.log("Program Ended !");
+      //   GetPosts();
+      //   console.log("Program Ended !");
 
       // fetch api with async await
+
+      async function GetPosts() {
+        let response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts",
+        );
+        let posts = await response.json(); // json() returns a promise
+        console.log(posts);
+      }
+      GetPosts();
     </script>
   </head>
   <body></body>
