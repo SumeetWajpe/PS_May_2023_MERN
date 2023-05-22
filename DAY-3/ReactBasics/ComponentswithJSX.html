@@ -21,14 +21,14 @@
     <script type="text/jsx">
       class BasicComponent extends React.Component {
         render() {
-          return <h1>{this.props.message}</h1>;
+          return <div> <h1>{this.props.message}</h1><p>{this.props.from}</p> </div>;
         }
       }
 
       let basicComponentInstances = <div>
-         <BasicComponent message="Hello !" />
-         <BasicComponent message="Hey !" />
-         <BasicComponent message="Hi !"  />
+         <BasicComponent message="Hello !" from="John" to="Alen" />
+         <BasicComponent message="Hey !" from="Carter" to="Alen" />
+         <BasicComponent message="Hi !" from="Femur" to="John"  />
       </div>
 
       ReactDOM.render(basicComponentInstances, document.querySelector("#root"));
