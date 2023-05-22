@@ -27,7 +27,7 @@ class App extends React.Component {
   ];
   render() {
     return (
-      <div className="App">
+      <div className="row">
         {this.messages.map((message: MessageModel) => (
           <Message msg={message} />
         ))}
