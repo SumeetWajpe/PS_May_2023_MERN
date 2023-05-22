@@ -6,7 +6,19 @@ type CourseProps = {
 };
 
 export default class Course extends Component<CourseProps> {
+  IncrementLikes() {
+    console.log("++");
+  }
   render() {
+    let ratings = [];
+    for (let index = 0; index < this.props.coursedetails.rating; index++) {
+      ratings.push(
+        <i
+          className="fa-sharp fa-solid fa-star"
+          style={{ color: "orange" }}
+        ></i>,
+      );
+    }
     return (
       <div className="col-md-3">
         <div className="card m-2 p-2">
@@ -16,15 +28,20 @@ export default class Course extends Component<CourseProps> {
             className="card-img-top"
             alt={this.props.coursedetails.title}
           />
-          <div className="card-body">
-            <h5 className="card-title">{this.props.coursedetails.title}</h5>
-            Rating : {this.props.coursedetails.rating}
-            <p className="card-text m-0">
-              Price : ₹. {this.props.coursedetails.price}
-            </p>
-            <p className="card-text">
-              Likes : {this.props.coursedetails.likes}
-            </p>
+          <div className="card-body p-0">
+            <div className="d-flex justify-content-between align-items-center">
+              <h5 className="card-title">{this.props.coursedetails.title}</h5>
+              <p> {ratings}</p>
+            </div>
+
+            <p className="card-text m-0">₹. {this.props.coursedetails.price}</p>
+            <button
+              className="btn btn-primary"
+              onClick={() => this.IncrementLikes()}
+            >
+              {this.props.coursedetails.likes}{" "}
+              <i className="fa-regular fa-thumbs-up"></i>
+            </button>
           </div>
         </div>
       </div>
