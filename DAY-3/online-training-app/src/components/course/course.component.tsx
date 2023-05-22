@@ -6,8 +6,11 @@ type CourseProps = {
 };
 
 export default class Course extends Component<CourseProps> {
+  state = { currLikes: 100 };
   IncrementLikes() {
-    console.log("++");
+    // console.log(this.props.coursedetails.likes++); // props are readonly
+    //this.state.currLikes++; // state is immutable
+    this.setState({ currLikes: this.state.currLikes + 1 });
   }
   render() {
     let ratings = [];
@@ -39,7 +42,8 @@ export default class Course extends Component<CourseProps> {
               className="btn btn-primary"
               onClick={() => this.IncrementLikes()}
             >
-              {this.props.coursedetails.likes}{" "}
+              {this.state.currLikes}{" "}
+              {/* {this.props.coursedetails.likes}{" "} */}
               <i className="fa-regular fa-thumbs-up"></i>
             </button>
           </div>
