@@ -9,16 +9,17 @@ type MessageProps = {
 export class Message extends React.Component<MessageProps> {
   render() {
     return (
-      <div className="msg-card">
+      <div className="card m-2" style={{ width: "18rem" }}>
         <img
           src={this.props.msg.imageUrl}
+          className="card-img-top"
           alt={this.props.msg.message}
-          height="150px"
-          width="200px"
         />
-        <h2>{this.props.msg.message}</h2>
-        <p>From : {this.props.msg.from}</p>
-        <p>To : {this.props.msg.to}</p>
+        <div className="card-body">
+          <h5 className="card-title">{this.props.msg.message}</h5>
+          <p className="card-text">{this.props.msg.from}</p>
+          <p className="card-text">{this.props.msg.to}</p>
+        </div>
       </div>
     );
   }
