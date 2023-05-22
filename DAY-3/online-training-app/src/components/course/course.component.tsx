@@ -5,8 +5,12 @@ type CourseProps = {
   coursedetails: CourseModel;
 };
 
-export default class Course extends Component<CourseProps> {
-  state = { currLikes: 100 };
+type CourseState = {
+  currLikes: number;
+};
+
+export default class Course extends Component<CourseProps, CourseState> {
+  state: Readonly<CourseState> = { currLikes: 100 };
   IncrementLikes() {
     // console.log(this.props.coursedetails.likes++); // props are readonly
     //this.state.currLikes++; // state is immutable
