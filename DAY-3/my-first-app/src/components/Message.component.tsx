@@ -1,8 +1,8 @@
 import React from "react";
-import { MessageType } from "../types/message.type";
+import { MessageModel } from "../models/message.model";
 
 type MessageProps = {
-  msg: MessageType;
+  msg: MessageModel;
 };
 
 export class Message extends React.Component<MessageProps> {

@@ -2,10 +2,10 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Message } from "./components/Message.component";
-import { MessageType } from "./types/message.type";
+import { MessageModel } from "./models/message.model";
 
 class App extends React.Component {
-  messageOne: MessageType = { message: "Hello", from: "John", to: "Alen" };
+  messageOne: MessageModel = new MessageModel("Hello", "John", "Carter");
   render() {
     return <Message msg={this.messageOne} />;
   }
