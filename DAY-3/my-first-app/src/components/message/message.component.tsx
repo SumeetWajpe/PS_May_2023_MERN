@@ -1,5 +1,6 @@
 import React from "react";
-import { MessageModel } from "../models/message.model";
+import "./message.component.css";
+import { MessageModel } from "../../models/message.model";
 
 type MessageProps = {
   msg: MessageModel;
@@ -8,7 +9,7 @@ type MessageProps = {
 export class Message extends React.Component<MessageProps> {
   render() {
     return (
-      <div>
+      <div className="msg-card">
         <img
           src={this.props.msg.imageUrl}
           alt={this.props.msg.message}
@@ -16,8 +17,8 @@ export class Message extends React.Component<MessageProps> {
           width="200px"
         />
         <h2>{this.props.msg.message}</h2>
-        <p>{this.props.msg.from}</p>
-        <p>{this.props.msg.to}</p>
+        <p>From : {this.props.msg.from}</p>
+        <p>To : {this.props.msg.to}</p>
       </div>
     );
   }
