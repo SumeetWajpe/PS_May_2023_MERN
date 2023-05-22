@@ -21,13 +21,17 @@
     <script type="text/jsx">
       class BasicComponent extends React.Component {
         render() {
-          return <h1>Hello Component with JSX ! </h1>;
+          return <h1>{this.props.message}</h1>;
         }
       }
 
-      let basicComponentInstance = <BasicComponent />;
+      let basicComponentInstances = <div>
+         <BasicComponent message="Hello !" />
+         <BasicComponent message="Hey !" />
+         <BasicComponent message="Hi !"  />
+      </div>
 
-      ReactDOM.render(basicComponentInstance, document.querySelector("#root"));
+      ReactDOM.render(basicComponentInstances, document.querySelector("#root"));
     </script>
   </body>
 </html>
