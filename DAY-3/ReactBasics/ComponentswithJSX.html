@@ -19,16 +19,18 @@
     <div id="root"></div>
 
     <script type="text/jsx">
+
+        let messageOne = {message:"Hello",from:"John", to:"Carter"}
+
       class BasicComponent extends React.Component {
         render() {
-          return <div> <h1>{this.props.message}</h1><p>{this.props.from}</p> </div>;
+          return <div> <h1>{this.props.msg.message}</h1><p>{this.props.msg.from}</p> <p>{this.props.msg.to}</p> </div>;
         }
       }
 
       let basicComponentInstances = <div>
-         <BasicComponent message="Hello !" from="John" to="Alen" />
-         <BasicComponent message="Hey !" from="Carter" to="Alen" />
-         <BasicComponent message="Hi !" from="Femur" to="John"  />
+         <BasicComponent msg={messageOne} />
+
       </div>
 
       ReactDOM.render(basicComponentInstances, document.querySelector("#root"));
