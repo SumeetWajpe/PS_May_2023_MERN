@@ -7,8 +7,9 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"></script>
-   
-   <style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-beta3/JSXTransformer.js"></script>
+
+    <style>
       .header {
         border: 2px solid blue;
       }
@@ -17,14 +18,14 @@
   <body>
     <div id="root"></div>
 
-    <script>
+    <script type="text/jsx">
       class BasicComponent extends React.Component {
         render() {
-          return React.createElement("h1", {}, "Hello React Component !");
+          return <h1>Hello Component with JSX ! </h1>;
         }
       }
 
-      let basicComponentInstance = React.createElement(BasicComponent);
+      let basicComponentInstance = <BasicComponent />;
 
       ReactDOM.render(basicComponentInstance, document.querySelector("#root"));
     </script>
