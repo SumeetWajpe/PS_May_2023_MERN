@@ -13,7 +13,7 @@ const Posts = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(res => res.json())
       .then(postsResponse => setPosts(postsResponse));
-  });
+  }, []);
   return (
     <div>
       <header>
