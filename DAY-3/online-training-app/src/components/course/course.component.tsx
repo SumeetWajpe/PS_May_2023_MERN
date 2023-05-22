@@ -10,7 +10,7 @@ type CourseState = {
 };
 
 export default class Course extends Component<CourseProps, CourseState> {
-  state: Readonly<CourseState> = { currLikes: 100 };
+  state: Readonly<CourseState> = { currLikes: this.props.coursedetails.likes };
   IncrementLikes() {
     // console.log(this.props.coursedetails.likes++); // props are readonly
     //this.state.currLikes++; // state is immutable
