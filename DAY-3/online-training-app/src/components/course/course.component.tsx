@@ -36,37 +36,43 @@ export default function Course(props: CourseProps): JSX.Element {
             <p> {ratings}</p>
           </div>
           <p className="card-text m-0">₹. {props.coursedetails.price}</p>
-          <button
-            className="btn btn-primary"
-            onClick={() => setCurrLikes(currLikes + 1)}
-          >
-            {currLikes} {/* {this.props.coursedetails.likes}{" "} */}
-            <i className="fa-regular fa-thumbs-up"></i>
-          </button>
-          <button
-            className="btn btn-danger mx-1"
-            onClick={() => props.DeleteACourse(props.coursedetails.id)}
-          >
-            <i className="fa-solid fa-trash"></i>
-          </button>
-          <input
-            type="checkbox"
-            id="chkAddToCart"
-            onChange={e => {
-              if (e.target.checked) {
-                props.setCurrItemsInCart([
-                  ...ctx.currItems,
-                  props.coursedetails,
-                ]);
-              } else if (e.target.checked == false) {
-                let newItems = ctx.currItems.filter(
-                  item => item.id != props.coursedetails.id,
-                );
-                props.setCurrItemsInCart(newItems);
-              }
-            }}
-          />{" "}
-          <label htmlFor="chkAddToCart">Add to Cart</label>
+          <div className="d-flex justify-content-evenly align-items-center">
+            <button
+              className="btn btn-primary"
+              onClick={() => setCurrLikes(currLikes + 1)}
+            >
+              {currLikes} {/* {this.props.coursedetails.likes}{" "} */}
+              <i className="fa-regular fa-thumbs-up"></i>
+            </button>
+            <button
+              className="btn btn-danger mx-1"
+              onClick={() => props.DeleteACourse(props.coursedetails.id)}
+            >
+              <i className="fa-solid fa-trash"></i>
+            </button>
+            <div>
+              <label>
+                {" "}
+                <input
+                  type="checkbox"
+                  onChange={e => {
+                    if (e.target.checked) {
+                      props.setCurrItemsInCart([
+                        ...ctx.currItems,
+                        props.coursedetails,
+                      ]);
+                    } else if (e.target.checked == false) {
+                      let newItems = ctx.currItems.filter(
+                        item => item.id != props.coursedetails.id,
+                      );
+                      props.setCurrItemsInCart(newItems);
+                    }
+                  }}
+                />{" "}
+                Add to Cart
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
