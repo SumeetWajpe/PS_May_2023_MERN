@@ -1,22 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Course from "../course/course.component";
 import { CourseModel } from "../../models/course.model";
 
 export default function ListOfCourses() {
-  let courses: CourseModel[] = [];
+  const [courses, setCourses] = useState<CourseModel[]>([]);
+
+  function DeleteACourse() {
+    console.log("Deleting...");
+  }
+
   useEffect(() => {
     (async () => {
       try {
         let res = await fetch(`http://localhost:3000/data/courses.data.json`);
         let coursesResponse = await res.json();
-        courses = coursesResponse;
+        setCourses(coursesResponse);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
   let coursesToBeCreated = courses.map(course => (
-    <Course coursedetails={course} />
+    <Course coursedetails={course} DeleteACourse={() => DeleteACourse()} />
   ));
   return (
     <>

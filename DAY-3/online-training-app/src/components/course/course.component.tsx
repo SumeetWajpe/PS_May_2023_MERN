@@ -3,6 +3,7 @@ import { CourseModel } from "../../models/course.model";
 
 type CourseProps = {
   coursedetails: CourseModel;
+  DeleteACourse: () => void;
 };
 
 export default function Course(props: CourseProps): JSX.Element {
@@ -36,7 +37,10 @@ export default function Course(props: CourseProps): JSX.Element {
             {currLikes} {/* {this.props.coursedetails.likes}{" "} */}
             <i className="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="btn btn-danger mx-1">
+          <button
+            className="btn btn-danger mx-1"
+            onClick={() => props.DeleteACourse()}
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
