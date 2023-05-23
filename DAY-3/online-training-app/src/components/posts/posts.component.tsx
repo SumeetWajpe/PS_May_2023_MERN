@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { PostsModel } from "../../models/posts.model";
 
-type PostsModel = {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
-};
+
 
 const Posts = () => {
   let [posts, setPosts] = useState<PostsModel[]>([]);
