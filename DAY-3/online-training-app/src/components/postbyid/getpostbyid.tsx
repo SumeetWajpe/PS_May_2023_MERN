@@ -8,11 +8,15 @@ export default function GetpostById() {
 
   useEffect(() => {
     async function fetchPost() {
-      let res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${postId}`,
-      );
-      let thePost = await res.json();
-      setPost(thePost);
+      try {
+        let res = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/${postId}`,
+        );
+        let thePost = await res.json();
+        setPost(thePost);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     fetchPost();
