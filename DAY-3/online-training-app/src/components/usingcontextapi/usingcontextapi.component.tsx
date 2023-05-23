@@ -14,12 +14,15 @@ export function GrandParent() {
 }
 
 export function Parent() {
+  // The consumer will infer "value" of the context from its nearest provider !
   return (
-    <div>
+    <>
+      {/* <CounterContext.Provider value={{ count: 1000 }}>    */}
       <h2>Parent </h2>
       <Child />
       <AnotherChild />
-    </div>
+      {/* </CounterContext.Provider> */}
+    </>
   );
 }
 
