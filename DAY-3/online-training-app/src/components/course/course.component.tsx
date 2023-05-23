@@ -58,6 +58,11 @@ export default function Course(props: CourseProps): JSX.Element {
                   ...ctx.currItems,
                   props.coursedetails,
                 ]);
+              } else if (e.target.checked == false) {
+                let newItems = ctx.currItems.filter(
+                  item => item.id != props.coursedetails.id,
+                );
+                props.setCurrItemsInCart(newItems);
               }
             }}
           />{" "}
