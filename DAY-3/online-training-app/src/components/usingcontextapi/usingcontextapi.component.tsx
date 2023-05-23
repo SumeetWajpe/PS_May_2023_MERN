@@ -1,12 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+type CounterContextType = {
+  count: number;
+  setCounterWithContext: (value: number) => void;
+};
 
-let CounterContext = React.createContext({ count: 0 });
+let CounterContext = React.createContext<CounterContextType>({
+  count: 0,
+  setCounterWithContext() {},
+});
 
 export function GrandParent() {
+  const [counter, setCounter] = useState({ count: 100 });
   return (
     <>
       <h1>GrandParent </h1>
-      <CounterContext.Provider value={{ count: 100 }}>
+      <CounterContext.Provider
+        value={{
+          count: counter.count,
+          setCounterWithContext: (value: number) => {
+            setCounter({ count: value });
+          },
+        }}
+      >
         <Parent />
       </CounterContext.Provider>
     </>
@@ -33,29 +48,40 @@ export function Child() {
       <h3>Child </h3>
 
       <strong>Child - Count : {ctx.count}</strong>
+      <button
+        className="btn btn-primary"
+        onClick={() => ctx.setCounterWithContext(ctx.count + 1)}
+      >
+        ++
+      </button>
     </div>
   );
 }
 // In Functional Component
-// export function AnotherChild() {
-//   let ctx = useContext(CounterContext);
-//   return (
-//     <div>
-//       <h3>Another Child </h3>
+export function AnotherChild() {
+  let ctx = useContext(CounterContext);
+  return (
+    <div>
+      <h3>Another Child </h3>
 
-//       <strong>Another Child - Count : {ctx.count}</strong>
-//     </div>
-//   );
-// }
-
-class AnotherChild extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <>
-        <CounterContext.Consumer>
-          {value => <strong>Another Child - Count : {value.count}</strong>}
-        </CounterContext.Consumer>
-      </>
-    );
-  }
+      <strong>Another Child - Count : {ctx.count}</strong>
+    </div>
+  );
 }
+
+// class AnotherChild extends React.Component {
+//   render(): React.ReactNode {
+//     return (
+//       <>
+//         <CounterContext.Consumer>
+//           {value => (
+//             <>
+//               <strong>Another Child - Count : {value.count}</strong>
+//               <button className="btn btn-primary">++</button>
+//             </>
+//           )}
+//         </CounterContext.Consumer>
+//       </>
+//     );
+//   }
+// }
