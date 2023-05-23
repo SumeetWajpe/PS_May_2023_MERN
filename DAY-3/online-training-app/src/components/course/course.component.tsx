@@ -3,7 +3,7 @@ import { CourseModel } from "../../models/course.model";
 
 type CourseProps = {
   coursedetails: CourseModel;
-  DeleteACourse: () => void;
+  DeleteACourse: (id: number) => void;
 };
 
 export default function Course(props: CourseProps): JSX.Element {
@@ -39,7 +39,7 @@ export default function Course(props: CourseProps): JSX.Element {
           </button>
           <button
             className="btn btn-danger mx-1"
-            onClick={() => props.DeleteACourse()}
+            onClick={() => props.DeleteACourse(props.coursedetails.id)}
           >
             <i className="fa-solid fa-trash"></i>
           </button>

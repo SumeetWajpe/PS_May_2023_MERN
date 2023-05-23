@@ -5,8 +5,9 @@ import { CourseModel } from "../../models/course.model";
 export default function ListOfCourses() {
   const [courses, setCourses] = useState<CourseModel[]>([]);
 
-  function DeleteACourse() {
-    console.log("Deleting...");
+  function DeleteACourse(theId: number) {
+    let newCourses = courses.filter(c => c.id != theId);
+    setCourses(newCourses);
   }
 
   useEffect(() => {
@@ -21,7 +22,10 @@ export default function ListOfCourses() {
     })();
   }, []);
   let coursesToBeCreated = courses.map(course => (
-    <Course coursedetails={course} DeleteACourse={() => DeleteACourse()} />
+    <Course
+      coursedetails={course}
+      DeleteACourse={(id: number) => DeleteACourse(id)}
+    />
   ));
   return (
     <>
