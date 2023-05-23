@@ -6,7 +6,5 @@ import Posts from "../posts/posts.component";
 import GetpostById from "../postbyid/getpostbyid";
 
 export default function App() {
-  // return <ListOfCourses />;
-  // return <Posts />;
-  return <GetpostById />;
+  return <ListOfCourses />;
 }
