@@ -18,6 +18,7 @@ export function Parent() {
     <div>
       <h2>Parent </h2>
       <Child />
+      <AnotherChild />
     </div>
   );
 }
@@ -31,4 +32,27 @@ export function Child() {
       <strong>Child - Count : {ctx.count}</strong>
     </div>
   );
+}
+// In Functional Component
+// export function AnotherChild() {
+//   let ctx = useContext(CounterContext);
+//   return (
+//     <div>
+//       <h3>Another Child </h3>
+
+//       <strong>Another Child - Count : {ctx.count}</strong>
+//     </div>
+//   );
+// }
+
+class AnotherChild extends React.Component {
+  render(): React.ReactNode {
+    return (
+      <>
+        <CounterContext.Consumer>
+          {value => <strong>Another Child - Count : {value.count}</strong>}
+        </CounterContext.Consumer>
+      </>
+    );
+  }
 }
