@@ -5,10 +5,17 @@ export default function GetpostById() {
   let newPostModel = new PostsModel(1, 1, "", "");
   let [postId, setPostId] = useState<number>(1);
   let [post, setPost] = useState<PostsModel>(newPostModel);
+
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then(res => res.json())
-      .then(thePost => setPost(thePost));
+    async function fetchPost() {
+      let res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${postId}`,
+      );
+      let thePost = await res.json();
+      setPost(thePost);
+    }
+
+    fetchPost();
   }, [postId]);
   return (
     <div>
