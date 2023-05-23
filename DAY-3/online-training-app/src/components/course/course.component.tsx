@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CourseModel } from "../../models/course.model";
+import { CartItemsContext } from "../../context/cartitems.context";
 
 type CourseProps = {
   coursedetails: CourseModel;
   DeleteACourse: (id: number) => void;
+  setCurrItemsInCart: (currCartItems: CourseModel[]) => void;
 };
 
 export default function Course(props: CourseProps): JSX.Element {
   let [currLikes, setCurrLikes] = useState<number>(props.coursedetails.likes);
+  const ctx = useContext(CartItemsContext);
   let ratings = [];
   for (let index = 0; index < props.coursedetails.rating; index++) {
     ratings.push(
@@ -32,7 +35,6 @@ export default function Course(props: CourseProps): JSX.Element {
             <h5 className="card-title">{props.coursedetails.title}</h5>
             <p> {ratings}</p>
           </div>
-
           <p className="card-text m-0">₹. {props.coursedetails.price}</p>
           <button
             className="btn btn-primary"
@@ -47,6 +49,19 @@ export default function Course(props: CourseProps): JSX.Element {
           >
             <i className="fa-solid fa-trash"></i>
           </button>
+          <input
+            type="checkbox"
+            id="chkAddToCart"
+            onChange={e => {
+              if (e.target.checked) {
+                props.setCurrItemsInCart([
+                  ...ctx.currItems,
+                  props.coursedetails,
+                ]);
+              }
+            }}
+          />{" "}
+          <label htmlFor="chkAddToCart">Add to Cart</label>
         </div>
       </div>
     </div>

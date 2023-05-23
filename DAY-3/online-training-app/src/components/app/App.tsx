@@ -7,6 +7,6 @@ import GetpostById from "../postbyid/getpostbyid";
 import { GrandParent } from "../usingcontextapi/usingcontextapi.component";
 
 export default function App() {
-  // return <ListOfCourses />;
-  return <GrandParent />;
+  return <ListOfCourses />;
+  // return <GrandParent />;
 }
