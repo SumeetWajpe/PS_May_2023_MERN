@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import { CartItemsContext } from "../../context/cartitems.context";
+import { Link } from "react-router-dom";
 
 type CourseProps = {
   coursedetails: CourseModel;
@@ -32,7 +33,10 @@ export default function Course(props: CourseProps): JSX.Element {
         />
         <div className="card-body p-0">
           <div className="d-flex justify-content-between align-items-center">
-            <h5 className="card-title">{props.coursedetails.title}</h5>
+            <h5 className="card-title">
+              {" "}
+              <Link to="/coursedetails">{props.coursedetails.title}</Link>{" "}
+            </h5>
             <p> {ratings}</p>
           </div>
           <p className="card-text m-0">₹. {props.coursedetails.price}</p>
