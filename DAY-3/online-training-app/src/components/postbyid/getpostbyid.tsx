@@ -38,3 +38,9 @@ export default function GetpostById() {
     </div>
   );
 }
+
+// IIFE -> Immediately Invocable function expression -> Invoked Once
+
+// (function () {
+//   console.log("IIFE");
+// })();
