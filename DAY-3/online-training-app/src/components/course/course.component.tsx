@@ -11,7 +11,11 @@ export default function Course(props: CourseProps): JSX.Element {
   let ratings = [];
   for (let index = 0; index < props.coursedetails.rating; index++) {
     ratings.push(
-      <i className="fa-sharp fa-solid fa-star" style={{ color: "orange" }}></i>,
+      <i
+        className="fa-sharp fa-solid fa-star"
+        style={{ color: "orange" }}
+        key={index}
+      ></i>,
     );
   }
   return (

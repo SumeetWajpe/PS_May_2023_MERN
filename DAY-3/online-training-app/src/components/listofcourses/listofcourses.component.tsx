@@ -25,6 +25,7 @@ export default function ListOfCourses() {
     <Course
       coursedetails={course}
       DeleteACourse={(id: number) => DeleteACourse(id)}
+      key={course.id}
     />
   ));
   return (
