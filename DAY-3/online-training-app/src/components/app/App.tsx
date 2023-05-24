@@ -6,7 +6,7 @@ import Posts from "../posts/posts.component";
 import GetpostById from "../postbyid/getpostbyid";
 import { GrandParent } from "../usingcontextapi/usingcontextapi.component";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import CourseDetails from "../../coursedetails/coursedetails.component";
+import CourseDetails from "../coursedetails/coursedetails.component";
 import NewCourse from "../newcourse/newcourse.component";
 
 export default function App() {
@@ -56,9 +56,8 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<ListOfCourses />} />
-          <Route path="/coursedetails" element={<CourseDetails />} />
+          <Route path="/coursedetails/:id" element={<CourseDetails />} />
           <Route path="/newcourse" element={<NewCourse />} />
-
           <Route path="/posts" element={<Posts />} />
         </Routes>
       </BrowserRouter>

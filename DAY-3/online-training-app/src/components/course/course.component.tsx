@@ -35,7 +35,9 @@ export default function Course(props: CourseProps): JSX.Element {
           <div className="d-flex justify-content-between align-items-center">
             <h5 className="card-title">
               {" "}
-              <Link to="/coursedetails">{props.coursedetails.title}</Link>{" "}
+              <Link to={`/coursedetails/${props.coursedetails.id}`}>
+                {props.coursedetails.title}
+              </Link>{" "}
             </h5>
             <p> {ratings}</p>
           </div>
