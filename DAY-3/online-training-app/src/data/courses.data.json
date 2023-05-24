@@ -87,6 +87,17 @@
       "trainerName": "Alan",
       "avatarUrl": "https://i.pravatar.cc/300",
       "description": "TensorFlow is a free and open-source software library for machine learning and artificial intelligence. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks."
+    },
+    {
+      "id": "9",
+      "title": "Python",
+      "price": "5000",
+      "rating": "4",
+      "likes": "800",
+      "imageUrl": "https://www.freecodecamp.org/news/content/images/2022/02/Banner-10.png",
+      "trainerName": "Alan",
+      "avatarUrl": "https://i.pravatar.cc/300",
+      "description": "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation via the off-side rule. Python is dynamically typed and garbage-collected."
     }
   ]
 }

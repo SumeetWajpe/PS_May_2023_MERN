@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 type CourseInput = {
   CourseId: number;
@@ -16,6 +17,7 @@ type CourseInput = {
 
 export default function NewCourseWithReactHookForm() {
   const { register, handleSubmit } = useForm<CourseInput>();
+  const navigate = useNavigate();
   return (
     <div>
       <h2>New Course</h2>
@@ -43,7 +45,11 @@ export default function NewCourseWithReactHookForm() {
               body: JSON.stringify(newCourse),
             })
               .then(res => res.json())
-              .then(course => console.log(course));
+              .then(course => {
+                if (course) {
+                  navigate("/");
+                }
+              });
           })}
         >
           <label>
