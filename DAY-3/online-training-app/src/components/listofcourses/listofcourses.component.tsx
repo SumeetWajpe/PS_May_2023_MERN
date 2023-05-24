@@ -9,6 +9,7 @@ export default function ListOfCourses() {
   const [currItemsInCart, setCurrItemsInCart] = useState<CourseModel[]>([]);
 
   function DeleteACourse(theId: number) {
+    // fetch api - DELETE
     let newCourses = courses.filter(c => c.id != theId);
     setCourses(newCourses);
   }

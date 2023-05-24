@@ -11,6 +11,16 @@ export default function NewCourse() {
           onSubmit={e => {
             e.preventDefault();
             console.log(newCourse);
+            // fetch api(POST) -> newCourse
+            fetch("http://localhost:3005/courses", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newCourse),
+            })
+              .then(res => res.json())
+              .then(course => console.log(course));
           }}
         >
           <label>

@@ -1,5 +1,5 @@
 {
-  "courses":[
+  "courses": [
     {
       "id": 1,
       "title": "React",
@@ -54,7 +54,17 @@
       "avatarUrl": "https://i.pravatar.cc/300",
       "imageUrl": "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg",
       "description": "Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017."
+    },
+    {
+      "id": 6,
+      "title": "StencilJS",
+      "price": 600,
+      "rating": 4,
+      "likes": 500,
+      "imageUrl": "https://stenciljs.com/stencil-og.png",
+      "trainerName": "Anil Nahata",
+      "avatarUrl": "https://i.pravatar.cc/300",
+      "description": "Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. "
     }
   ]
-
 }
