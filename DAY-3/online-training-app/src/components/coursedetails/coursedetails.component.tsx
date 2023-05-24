@@ -5,9 +5,7 @@ import Rating from "../atoms/rating.component";
 import Title from "../atoms/title.component";
 
 export default function CourseDetails() {
-  let [course, setCourse] = useState<CourseModel>(
-    new CourseModel(0, "", 0, 0, 0, "", "", "", ""),
-  );
+  let [course, setCourse] = useState<CourseModel>(new CourseModel());
   let { id } = useParams();
 
   useEffect(() => {
@@ -54,13 +52,13 @@ export default function CourseDetails() {
               </Title>
             </div>
 
-            <p>
+            <div className="my-1">
               <Rating
                 maxCount={course.rating}
                 iconClasses="fa-solid fa-star"
                 color="orange"
               />
-            </p>
+            </div>
             <p>₹. {course.price}</p>
             <p>{course.description}</p>
           </div>
