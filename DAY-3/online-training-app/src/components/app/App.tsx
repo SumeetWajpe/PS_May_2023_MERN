@@ -9,6 +9,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import CourseDetails from "../coursedetails/coursedetails.component";
 import NewCourse from "../newcourse/newcourse.component";
 import PostDetails from "../postdetails/postdetails.component";
+import NewCourseWithReactHookForm from "../newcoursewithreacthookform/newcourse.reacthookform";
 
 export default function App() {
   return (
@@ -58,7 +59,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ListOfCourses />} />
           <Route path="/coursedetails/:id" element={<CourseDetails />} />
-          <Route path="/newcourse" element={<NewCourse />} />
+          {/* <Route path="/newcourse" element={<NewCourse />} /> */}
+          <Route path="/newcourse" element={<NewCourseWithReactHookForm />} />
+
           <Route path="/posts" element={<Posts />} />
           <Route path="/postdetails/:id" element={<PostDetails />} />
         </Routes>
