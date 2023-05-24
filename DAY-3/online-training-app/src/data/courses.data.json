@@ -76,6 +76,17 @@
       "trainerName": "Achal",
       "avatarUrl": "https://i.pravatar.cc/300",
       "description": "Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity."
+    },
+    {
+      "id": "8",
+      "title": "TensorFlow",
+      "price": "7000",
+      "rating": "5",
+      "likes": "700",
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTtFXWao9sbX4P__SCJhLChXRdTkVur0sJTnQp5K0MtVR7U0-l3j5Yrpx41U2YSh4N671c-Wn7dJ68xim8cGAiexDI3IOdEV_vHpMsWdsZxSYU3TUpAzNEIVOOOV3O-wxa4caTUT2VwVTTy-R6GlGji1H4lhewb9WC5nmRCzN8Ofe7yF1NW6ArPI7Q/s1600/Tensorflow-septmber-update-social%20%281%29.png",
+      "trainerName": "Alan",
+      "avatarUrl": "https://i.pravatar.cc/300",
+      "description": "TensorFlow is a free and open-source software library for machine learning and artificial intelligence. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks."
     }
   ]
 }

@@ -20,7 +20,32 @@ export default function NewCourseWithReactHookForm() {
     <div>
       <h2>New Course</h2>
       <div className="d-flex justify-content-center align-items-center">
-        <form onSubmit={handleSubmit(data => console.log(data))}>
+        <form
+          onSubmit={handleSubmit((data: CourseInput) => {
+            let newCourse = new CourseModel(
+              data.CourseId,
+              data.CourseTitle,
+              data.CoursePrice,
+              data.CourseRating,
+              data.CourseLikes,
+              data.CourseImageUrl,
+              data.CourseTrainerName,
+              data.CourseAvatarUrl,
+              data.CourseDescription,
+            );
+
+            // fetch api(POST) -> newCourse
+            fetch("http://localhost:3005/courses", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newCourse),
+            })
+              .then(res => res.json())
+              .then(course => console.log(course));
+          })}
+        >
           <label>
             Id :{" "}
             <input
