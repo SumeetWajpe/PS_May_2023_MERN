@@ -9,20 +9,25 @@ const Posts = () => {
       .then(res => res.json())
       .then(postsResponse => setPosts(postsResponse));
   }, []);
+
   return (
     <div>
       <header>
         <h1>All Posts</h1>
       </header>
       <main>
-        <ul className="list-group">
-          {posts.map(post => (
-            <li className="list-group-item">
-              {" "}
-              <Link to={"/postdetails/" + post.id}>{post.title}</Link>{" "}
-            </li>
-          ))}
-        </ul>
+        {posts.length == 0 ? (
+          <img src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+        ) : (
+          <ul className="list-group">
+            {posts.map(post => (
+              <li className="list-group-item" key={post.id}>
+                {" "}
+                <Link to={"/postdetails/" + post.id}>{post.title}</Link>{" "}
+              </li>
+            ))}
+          </ul>
+        )}
       </main>
     </div>
   );
