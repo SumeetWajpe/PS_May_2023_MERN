@@ -6,5 +6,8 @@ export class CourseModel {
     public rating: number,
     public likes: number,
     public imageUrl: string,
+    public trainerName: string,
+    public avatarUrl: string,
+    public description: string,
   ) {}
 }

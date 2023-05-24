@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { CourseModel } from "../../models/course.model";
 import { CartItemsContext } from "../../context/cartitems.context";
 import { Link } from "react-router-dom";
+import Title from "../atoms/title.component";
+import Rating from "../atoms/rating.component";
 
 type CourseProps = {
   coursedetails: CourseModel;
@@ -12,16 +14,7 @@ type CourseProps = {
 export default function Course(props: CourseProps): JSX.Element {
   let [currLikes, setCurrLikes] = useState<number>(props.coursedetails.likes);
   const ctx = useContext(CartItemsContext);
-  let ratings = [];
-  for (let index = 0; index < props.coursedetails.rating; index++) {
-    ratings.push(
-      <i
-        className="fa-sharp fa-solid fa-star"
-        style={{ color: "orange" }}
-        key={index}
-      ></i>,
-    );
-  }
+
   return (
     <div className="col-md-3">
       <div className="card m-2 p-2">
@@ -39,7 +32,15 @@ export default function Course(props: CourseProps): JSX.Element {
                 {props.coursedetails.title}
               </Link>{" "}
             </h5>
-            <p> {ratings}</p>
+            {/* <Title title={props.coursedetails.title}>
+              <h1>Title</h1>
+            </Title> */}
+
+            <Rating
+              maxCount={props?.coursedetails?.rating}
+              iconClasses="fa-solid fa-star"
+              color="orange"
+            />
           </div>
           <p className="card-text m-0">₹. {props.coursedetails.price}</p>
           <div className="d-flex justify-content-evenly align-items-center">
