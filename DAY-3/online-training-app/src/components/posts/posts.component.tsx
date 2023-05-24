@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PostsModel } from "../../models/posts.model";
-
-
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   let [posts, setPosts] = useState<PostsModel[]>([]);
@@ -16,9 +15,12 @@ const Posts = () => {
         <h1>All Posts</h1>
       </header>
       <main>
-        <ul>
+        <ul className="list-group">
           {posts.map(post => (
-            <li>{post.title}</li>
+            <li className="list-group-item">
+              {" "}
+              <Link to={"/postdetails/" + post.id}>{post.title}</Link>{" "}
+            </li>
           ))}
         </ul>
       </main>
