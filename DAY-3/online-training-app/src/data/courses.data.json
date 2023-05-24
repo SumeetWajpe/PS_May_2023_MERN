@@ -65,6 +65,17 @@
       "trainerName": "Anil Nahata",
       "avatarUrl": "https://i.pravatar.cc/300",
       "description": "Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. Stencil is a library for building reusable, scalable component libraries. Generate small, blazing fast Web Components that run everywhere. "
+    },
+    {
+      "id": 7,
+      "title": "Aurelia",
+      "price": 7000,
+      "rating": 5,
+      "likes": 700,
+      "imageUrl": "https://www.valuecoders.com/blog/wp-content/uploads/2016/12/aurleiajs1.jpg",
+      "trainerName": "Achal",
+      "avatarUrl": "https://i.pravatar.cc/300",
+      "description": "Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity.Aurelia is a JavaScript client framework for web, mobile and desktop that leverages simple conventions to empower your creativity."
     }
   ]
 }

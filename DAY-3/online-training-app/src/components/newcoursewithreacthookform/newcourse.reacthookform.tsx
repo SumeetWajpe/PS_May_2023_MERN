@@ -1,0 +1,74 @@
+import React, { useState } from "react";
+import { CourseModel } from "../../models/course.model";
+
+export default function NewCourse() {
+  const [newCourse, setNewCourse] = useState<CourseModel>(new CourseModel());
+  return (
+    <div>
+      <h2>New Course</h2>
+      <div className="d-flex justify-content-center align-items-center">
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            // fetch api(POST) -> newCourse
+            //     fetch("http://localhost:3005/courses", {
+            //       method: "POST",
+            //       headers: {
+            //         "Content-Type": "application/json",
+            //       },
+            //       body: JSON.stringify(newCourse),
+            //     })
+            //       .then(res => res.json())
+            //       .then(course => console.log(course));
+          }}
+        >
+          <label>
+            Id : <input type="number" className="form-control" />
+          </label>
+          <br />
+          <label>
+            Title : <input type="text" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Price : <input type="number" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Rating : <input type="number" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Likes : <input type="number" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Trainer Name : <input type="text" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Avatar Url : <input type="text" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Image Url : <input type="text" className="form-control" />
+          </label>
+          <br />
+
+          <label>
+            Description : <input type="text" className="form-control" />
+          </label>
+          <br />
+
+          <button className="btn btn-success m-1">Add New Course</button>
+        </form>
+      </div>
+    </div>
+  );
+}
