@@ -16,7 +16,7 @@ export default function ListOfCourses() {
   useEffect(() => {
     (async () => {
       try {
-        let res = await fetch(`http://localhost:3000/data/courses.data.json`);
+        let res = await fetch(`http://localhost:3005/courses`);
         let coursesResponse = await res.json();
         setCourses(coursesResponse);
       } catch (error) {

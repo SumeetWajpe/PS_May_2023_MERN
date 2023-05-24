@@ -11,10 +11,8 @@ export default function CourseDetails() {
   useEffect(() => {
     async function fetchCourse() {
       try {
-        let res = await fetch(`http://localhost:3000/data/courses.data.json`);
-        let theCourses = await res.json();
-        let cid = id ? +id : 0;
-        let theCourse = theCourses.find((c: CourseModel) => c.id == cid);
+        let res = await fetch(`http://localhost:3005/courses/${id}`);
+        let theCourse = await res.json();
         setCourse(theCourse);
       } catch (error) {
         console.log(error);
