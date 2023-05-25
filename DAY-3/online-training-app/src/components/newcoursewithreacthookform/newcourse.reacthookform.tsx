@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CourseModel } from "../../models/course.model";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,11 @@ type CourseInput = {
 };
 
 export default function NewCourseWithReactHookForm() {
-  const { register, handleSubmit } = useForm<CourseInput>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CourseInput>({ mode: "onChange" });
   const navigate = useNavigate();
   return (
     <div>
@@ -57,8 +61,11 @@ export default function NewCourseWithReactHookForm() {
             <input
               type="number"
               className="form-control"
-              {...register("CourseId")}
+              {...register("CourseId", { required: true })}
             />
+            {errors.CourseId && (
+              <p style={{ color: "red" }}>Course Id required !</p>
+            )}
           </label>
           <br />
           <label>

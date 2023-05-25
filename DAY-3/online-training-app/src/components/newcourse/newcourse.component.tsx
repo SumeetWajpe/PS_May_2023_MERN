@@ -10,7 +10,7 @@ export default function NewCourse() {
         <form
           onSubmit={e => {
             e.preventDefault();
-            console.log(newCourse);
+
             // fetch api(POST) -> newCourse
             fetch("http://localhost:3005/courses", {
               method: "POST",
