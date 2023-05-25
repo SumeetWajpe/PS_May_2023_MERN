@@ -57,6 +57,7 @@ export default function CourseDetails() {
                 color="orange"
               />
             </div>
+            <p>{course.likes}</p>
             <p>₹. {course.price}</p>
             <p>{course.description}</p>
           </div>
