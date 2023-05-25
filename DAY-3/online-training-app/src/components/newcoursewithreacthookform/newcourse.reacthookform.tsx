@@ -60,11 +60,12 @@ export default function NewCourseWithReactHookForm() {
             Id :{" "}
             <input
               type="number"
+              placeholder="Only number"
               className="form-control"
               {...register("CourseId", { required: true })}
             />
             {errors.CourseId && (
-              <p style={{ color: "red" }}>Course Id required !</p>
+              <p style={{ color: "red" }}>Course Id is required !</p>
             )}
           </label>
           <br />
@@ -72,16 +73,32 @@ export default function NewCourseWithReactHookForm() {
             Title :{" "}
             <input
               type="text"
+              placeholder="Max length 20 chars"
               className="form-control"
-              {...register("CourseTitle")}
+              {...register("CourseTitle", {
+                required: true,
+
+                maxLength: {
+                  value: 20,
+                  message: "You exceeded 20 char limit !",
+                },
+              })}
             />
           </label>
+          {errors.CourseTitle && (
+            <p style={{ color: "red" }}>
+              {errors.CourseTitle.type == "maxLength"
+                ? errors.CourseTitle.message
+                : "Course Title is required !"}
+            </p>
+          )}
           <br />
 
           <label>
             Price :{" "}
             <input
               type="number"
+              placeholder="Only number"
               className="form-control"
               {...register("CoursePrice")}
             />
@@ -93,6 +110,8 @@ export default function NewCourseWithReactHookForm() {
             <input
               type="number"
               className="form-control"
+              min={0}
+              max={5}
               {...register("CourseRating")}
             />
           </label>

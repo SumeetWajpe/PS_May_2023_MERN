@@ -98,6 +98,17 @@
       "trainerName": "Alan",
       "avatarUrl": "https://i.pravatar.cc/300",
       "description": "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation via the off-side rule. Python is dynamically typed and garbage-collected."
+    },
+    {
+      "id": "10",
+      "title": "Kotlin",
+      "price": "9000",
+      "rating": "5",
+      "likes": "800",
+      "imageUrl": "https://kotlinlang.org/assets/images/twitter/general.png",
+      "trainerName": "Alan",
+      "avatarUrl": "https://i.pravatar.cc/300",
+      "description": "Kotlin is a cross-platform, statically typed, general-purpose high-level programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise. "
     }
   ]
 }
