@@ -12,6 +12,11 @@ import PostDetails from "../postdetails/postdetails.component";
 import NewCourseWithReactHookForm from "../newcoursewithreacthookform/newcourse.reacthookform";
 import Header from "../header/header.component";
 import Cart from "../cart/cart.component";
+import Error from "../error/error.component";
+import Login from "../login/login.component";
+import Dashboard from "../dashboard/dashboard.component";
+import Account from "../account/account.component";
+import Profile from "../profile/profile.component";
 
 export default function App() {
   return (
@@ -26,6 +31,14 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/postdetails/:id" element={<PostDetails />} />
+
+          {/* Nested Routes */}
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="" element={<Account />}></Route>
+            <Route path="profile" element={<Profile />}></Route>
+          </Route>
+          {/* Wild card route handler - 404 */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </>
