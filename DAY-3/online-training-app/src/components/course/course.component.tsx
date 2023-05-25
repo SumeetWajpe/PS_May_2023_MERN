@@ -8,7 +8,6 @@ import Rating from "../atoms/rating.component";
 type CourseProps = {
   coursedetails: CourseModel;
   DeleteACourse: (id: number) => void;
-  setCurrItemsInCart: (currCartItems: CourseModel[]) => void;
 };
 
 export default function Course(props: CourseProps): JSX.Element {
@@ -64,15 +63,12 @@ export default function Course(props: CourseProps): JSX.Element {
                   type="checkbox"
                   onChange={e => {
                     if (e.target.checked) {
-                      props.setCurrItemsInCart([
-                        ...ctx.currItems,
-                        props.coursedetails,
-                      ]);
+                      ctx.addItemToCart(props.coursedetails);
                     } else if (e.target.checked == false) {
                       let newItems = ctx.currItems.filter(
                         item => item.id != props.coursedetails.id,
                       );
-                      props.setCurrItemsInCart(newItems);
+                      // removeItemsFromCart()
                     }
                   }}
                 />{" "}

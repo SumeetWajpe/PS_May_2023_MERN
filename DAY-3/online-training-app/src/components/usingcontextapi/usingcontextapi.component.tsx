@@ -9,21 +9,31 @@ let CounterContext = React.createContext<CounterContextType>({
   setCounterWithContext() {},
 });
 
-export function GrandParent() {
+export function CounterContextProvider(props: any) {
   const [counter, setCounter] = useState({ count: 100 });
+
+  return (
+    <CounterContext.Provider
+      value={{
+        count: counter.count,
+        setCounterWithContext: (value: number) => {
+          setCounter({ count: value });
+        },
+      }}
+    >
+      {props.children}
+    </CounterContext.Provider>
+  );
+}
+
+export function GrandParent() {
   return (
     <>
       <h1>GrandParent </h1>
-      <CounterContext.Provider
-        value={{
-          count: counter.count,
-          setCounterWithContext: (value: number) => {
-            setCounter({ count: value });
-          },
-        }}
-      >
-        <Parent />
-      </CounterContext.Provider>
+
+      <CounterContextProvider>
+        <Parent></Parent>
+      </CounterContextProvider>
     </>
   );
 }

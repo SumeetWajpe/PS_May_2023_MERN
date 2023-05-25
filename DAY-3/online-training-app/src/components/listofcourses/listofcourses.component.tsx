@@ -6,7 +6,6 @@ import { CartItemsContext } from "../../context/cartitems.context";
 
 export default function ListOfCourses() {
   const [courses, setCourses] = useState<CourseModel[]>([]);
-  const [currItemsInCart, setCurrItemsInCart] = useState<CourseModel[]>([]);
 
   function DeleteACourse(theId: number) {
     // fetch api - DELETE
@@ -30,20 +29,15 @@ export default function ListOfCourses() {
       coursedetails={course}
       DeleteACourse={(id: number) => DeleteACourse(id)}
       key={course.id}
-      setCurrItemsInCart={(currCourseItems: CourseModel[]) =>
-        setCurrItemsInCart(currCourseItems)
-      }
     />
   ));
   return (
     <>
-      <CartItemsContext.Provider value={{ currItems: currItemsInCart }}>
-        <div className="d-flex justify-content-between">
-          <h1>List Of Courses</h1>
-          <CartItemsCount />
-        </div>
-        <div className="row">{coursesToBeCreated}</div>
-      </CartItemsContext.Provider>
+      <div className="d-flex justify-content-between">
+        <h1>List Of Courses</h1>
+       
+      </div>
+      <div className="row">{coursesToBeCreated}</div>
     </>
   );
 }
