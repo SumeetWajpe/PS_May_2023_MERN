@@ -11,6 +11,7 @@ import NewCourse from "../newcourse/newcourse.component";
 import PostDetails from "../postdetails/postdetails.component";
 import NewCourseWithReactHookForm from "../newcoursewithreacthookform/newcourse.reacthookform";
 import Header from "../header/header.component";
+import Cart from "../cart/cart.component";
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
           <Route path="/coursedetails/:id" element={<CourseDetails />} />
           {/* <Route path="/newcourse" element={<NewCourse />} /> */}
           <Route path="/newcourse" element={<NewCourseWithReactHookForm />} />
-
+          <Route path="/cart" element={<Cart />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/postdetails/:id" element={<PostDetails />} />
         </Routes>

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Course from "../course/course.component";
 import { CourseModel } from "../../models/course.model";
-import CartItemsCount from "../cartitemscount/cartitemscount.component";
-import { CartItemsContext } from "../../context/cartitems.context";
 
 export default function ListOfCourses() {
   const [courses, setCourses] = useState<CourseModel[]>([]);
