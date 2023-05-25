@@ -37,6 +37,16 @@ export default function Header() {
                 New Course
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard">
+                Accounts
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard/profile">
+                Profile
+              </Link>
+            </li>
           </ul>
           <div className="d-flex">
             <CartItemsCount />
