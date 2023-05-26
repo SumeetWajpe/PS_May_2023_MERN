@@ -1,6 +1,6 @@
 import React from "react";
 import Posts from "../posts/posts.component";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CourseDetails from "../coursedetails/coursedetails.component";
 import PostDetails from "../postdetails/postdetails.component";
 import NewCourseWithReactHookForm from "../newcoursewithreacthookform/newcourse.reacthookform";

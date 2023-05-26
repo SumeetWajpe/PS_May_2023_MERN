@@ -10,7 +10,7 @@ export default function PostDetails() {
       .then(res => res.json())
       .then(postsResponse => setThePost(postsResponse))
       .catch(err => console.log(err));
-  }, []);
+  }, [id]);
 
   return (
     <div>

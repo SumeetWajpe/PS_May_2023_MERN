@@ -16,8 +16,11 @@ const Posts = () => {
         <h1>All Posts</h1>
       </header>
       <main>
-        {posts.length == 0 ? (
-          <img src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+        {posts.length === 0 ? (
+          <img
+            src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif"
+            alt="Loading.."
+          />
         ) : (
           <ul className="list-group">
             {posts.map(post => (

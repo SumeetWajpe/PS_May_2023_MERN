@@ -87,7 +87,7 @@ export default function NewCourseWithReactHookForm() {
           </label>
           {errors.CourseTitle && (
             <p style={{ color: "red" }}>
-              {errors.CourseTitle.type == "maxLength"
+              {errors.CourseTitle.type === "maxLength"
                 ? errors.CourseTitle.message
                 : "Course Title is required !"}
             </p>

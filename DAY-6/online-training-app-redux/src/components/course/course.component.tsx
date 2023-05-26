@@ -1,14 +1,11 @@
-import { useContext, useState } from "react";
 import { CourseModel } from "../../models/course.model";
-import { CartItemsContext } from "../../context/cartitems.context";
-import { Link } from "react-router-dom";
-import Title from "../atoms/title.component";
 import Rating from "../atoms/rating.component";
 import { useDispatch } from "react-redux";
 import {
   deleteCourse,
   incrementLikes,
 } from "../../redux/reducers/courses.reducer";
+import { addItemToCart } from "../../redux/reducers/cart.reducer";
 
 type CourseProps = {
   coursedetails: CourseModel;
@@ -56,7 +53,15 @@ export default function Course(props: CourseProps): JSX.Element {
             <div>
               <label>
                 {" "}
-                <input type="checkbox" /> Add to Cart
+                <input
+                  type="checkbox"
+                  onChange={e => {
+                    if (e.target.checked) {
+                      dispatch(addItemToCart(props.coursedetails));
+                    }
+                  }}
+                />{" "}
+                Add to Cart
               </label>
             </div>
           </div>

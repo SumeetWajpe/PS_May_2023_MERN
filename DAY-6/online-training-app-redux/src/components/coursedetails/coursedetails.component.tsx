@@ -20,7 +20,7 @@ export default function CourseDetails() {
     }
 
     fetchCourse();
-  }, []);
+  }, [id]);
   return (
     <div>
       <header>
