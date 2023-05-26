@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PostsModel } from "../../models/posts.model";
 
-let initialState = [
+let initialState: PostsModel[] = [
   {
     id: 1,
     userId: 1,
@@ -13,7 +14,7 @@ export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    deletePost: (store, action) => {
+    deletePost: (store, action: PayloadAction<number>) => {
       console.log("delete Post called !");
       return store; // updated store
     },

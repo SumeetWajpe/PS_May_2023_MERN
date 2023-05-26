@@ -3,9 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { incrementLikes } from "./redux/reducers/courses.reducer";
+import { RootState } from "./redux/store/store";
+import { CourseModel } from "./models/course.model";
 
 function App() {
-  const courses = useSelector((store: any) => store.courses);
+  const courses: CourseModel[] = useSelector(
+    (store: RootState) => store.courses,
+  );
   const dispatch = useDispatch();
   return (
     <div className="App">
