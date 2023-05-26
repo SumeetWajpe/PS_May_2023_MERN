@@ -1,15 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let initialState = {
-  posts: [
-    {
-      id: 1,
-      userId: 1,
-      title: "Dummy Title",
-      body: "Dummy Body !",
-    },
-  ],
-};
+let initialState = [
+  {
+    id: 1,
+    userId: 1,
+    title: "Dummy Title",
+    body: "Dummy Body !",
+  },
+];
 
 export const postsSlice = createSlice({
   name: "posts",

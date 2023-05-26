@@ -4,7 +4,7 @@ import "./App.css";
 import { useSelector } from "react-redux";
 
 function App() {
-  const courses = useSelector((state: any) => state.courses.courses);
+  const courses = useSelector((store: any) => store.courses);
   return <div className="App">{courses.length}</div>;
 }
 
