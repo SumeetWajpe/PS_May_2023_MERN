@@ -9,9 +9,9 @@ function App() {
   const dispatch = useDispatch();
   return (
     <div className="App">
-      {courses.length}
+      {courses[0].likes}
 
-      <button onClick={() => dispatch(incrementLikes("100"))}>++</button>
+      <button onClick={() => dispatch(incrementLikes(1))}>++</button>
     </div>
   );
 }

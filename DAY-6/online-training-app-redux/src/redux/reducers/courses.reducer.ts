@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { CourseModel } from "../../models/course.model";
 
-let initialState = [
+let initialState: CourseModel[] = [
   {
     id: 1,
     title: "React",
@@ -70,8 +71,10 @@ export const coursesSlice = createSlice({
   name: "courses",
   initialState,
   reducers: {
-    incrementLikes: (store, action) => {
+    incrementLikes: (store, action: PayloadAction<number>) => {
       console.log("increment Likes called !");
+      let index = store.findIndex(course => course.id === action.payload);
+      store[index].likes++;
       return store;
     },
   },
