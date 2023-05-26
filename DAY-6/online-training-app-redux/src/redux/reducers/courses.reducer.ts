@@ -72,13 +72,16 @@ export const coursesSlice = createSlice({
   initialState,
   reducers: {
     incrementLikes: (store, action: PayloadAction<number>) => {
-      console.log("increment Likes called !");
       let index = store.findIndex(course => course.id === action.payload);
       store[index].likes++;
+      return store;
+    },
+    deleteCourse: (store, action: PayloadAction<number>) => {
+      store = store.filter(c => c.id !== action.payload);
       return store;
     },
   },
 });
 
-export const { incrementLikes } = coursesSlice.actions;
+export const { incrementLikes, deleteCourse } = coursesSlice.actions;
 export default coursesSlice.reducer;
