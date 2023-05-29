@@ -8,8 +8,9 @@
     <script>
       function* MyGenerator() {
         console.log("Started..");
-        yield 10; // the method pauses here
+        let returnedValue = yield 10; // the method pauses here
         console.log("After first yield !");
+        console.log(returnedValue);
         yield 20;
         console.log("After second yield !");
         return 30;
@@ -18,8 +19,8 @@
       let itr = MyGenerator();
       console.log(itr.next());
       console.log("This will be executed..");
-      console.log(itr.next());
-      console.log(itr.next());
+      console.log(itr.next(15));
+      //   console.log(itr.next());
     </script>
   </head>
   <body></body>
