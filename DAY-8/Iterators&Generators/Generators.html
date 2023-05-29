@@ -13,14 +13,14 @@
         console.log(returnedValue);
         yield 20;
         console.log("After second yield !");
-        return 30;
+        // return 30;
       }
 
       let itr = MyGenerator();
       console.log(itr.next());
       console.log("This will be executed..");
       console.log(itr.next(15));
-      //   console.log(itr.next());
+      console.log(itr.return(100));
     </script>
   </head>
   <body></body>
