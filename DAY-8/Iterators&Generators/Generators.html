@@ -9,12 +9,17 @@
       function* MyGenerator() {
         console.log("Started..");
         yield 10; // the method pauses here
-        console.log("After yield !");
+        console.log("After first yield !");
+        yield 20;
+        console.log("After second yield !");
+        return 30;
       }
 
       let itr = MyGenerator();
       console.log(itr.next());
       console.log("This will be executed..");
+      console.log(itr.next());
+      console.log(itr.next());
     </script>
   </head>
   <body></body>
