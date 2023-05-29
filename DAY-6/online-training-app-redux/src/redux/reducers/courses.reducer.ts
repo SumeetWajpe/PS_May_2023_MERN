@@ -1,6 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CourseModel } from "../../models/course.model";
 
+// a good solution would be to have initialState to contain -> {loading:true,error,courses:[]}
 let initialState: CourseModel[] = [];
 
 export const coursesSlice = createSlice({

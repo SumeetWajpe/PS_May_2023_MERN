@@ -25,7 +25,9 @@ export function* fetchCourses() {
     // setCourses(response)
     const response: Response = yield call(GetCourses);
     yield put(setCourses(response.data)); // dispatching
-  } catch (error) {}
+  } catch (error) {
+    //yield put(handleError(error)); // dispatching an action with Error message as payload
+  }
 }
 
 export default function* rootSaga() {
