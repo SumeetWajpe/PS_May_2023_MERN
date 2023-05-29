@@ -5,6 +5,8 @@ import cartReducer from "../reducers/cart.reducer";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../../saga/sagas";
 
+const sagaMiddleware = createSagaMiddleware();
+
 const store = configureStore({
   reducer: {
     courses: coursesReducer,
@@ -14,8 +16,6 @@ const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat([sagaMiddleware]),
 });
-
-const sagaMiddleware = createSagaMiddleware();
 
 sagaMiddleware.run(rootSaga);
 
