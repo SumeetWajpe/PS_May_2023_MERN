@@ -10,16 +10,23 @@ const Posts = () => {
   let postsData = useSelector((store: RootState) => store.posts);
   const { error, loading, posts } = postsData;
 
-  useEffect(() => {
-    dispatch({ type: sagaActions.FETCH_POSTS_SAGA_ACTION });
-  }, []);
+  useEffect(() => {}, []);
 
   if (loading)
     return (
-      <img
-        src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif"
-        alt="Loading.."
-      />
+      <>
+        <button
+          onClick={() => {
+            dispatch({ type: sagaActions.FETCH_POSTS_SAGA_ACTION });
+          }}
+        >
+          Get Posts !
+        </button>
+        <img
+          src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif"
+          alt="Loading.."
+        />
+      </>
     );
   if (error) return <h1> Something went wrong - {error}</h1>;
 

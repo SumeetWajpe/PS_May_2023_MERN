@@ -1,4 +1,4 @@
-import { call, takeLatest, put } from "redux-saga/effects";
+import { call, takeLatest, put, retry } from "redux-saga/effects";
 import { sagaActions } from "./sagaActions";
 import axios from "axios";
 import { CourseModel } from "../models/course.model";
@@ -20,7 +20,7 @@ function GetCourses() {
 }
 
 function GetPosts() {
-  return axios.get<PostsModel[]>("https://jsonplaceholder.typicode.com/postsss");
+  return axios.get<PostsModel[]>("https://jsonplaceholder.typicode.com/posts");
 }
 
 //Worker Saga
@@ -48,8 +48,19 @@ export function* fetchPosts() {
   }
 }
 
+export function* fetchPostsWithRetry() {
+  try {
+    let duration = 1000;
+    let response: Response = yield retry(3, duration * 10, GetPosts);
+    yield put(setPosts(response.data)); // dispatching
+  } catch (error: any) {
+    // AxiosError type
+    yield put(setPostsError(error.message as string)); // dispatching an action with Error message as payload
+  }
+}
 export default function* rootSaga() {
   console.log("Root Saga..");
   yield takeLatest(sagaActions.FETCH_COURSES_SAGA_ACTION, fetchCourses);
-  yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPosts);
+  // yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPosts);
+  yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPostsWithRetry);
 }
