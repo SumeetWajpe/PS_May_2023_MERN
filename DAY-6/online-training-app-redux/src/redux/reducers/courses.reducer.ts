@@ -6,9 +6,13 @@ let initialState: CourseModel[] = [];
 export const fetchCoursesAsync = createAsyncThunk<CourseModel[]>(
   "courses/fetchAllCourses",
   async () => {
-    const responseJSON = await fetch("http://localhost:3005/courses");
-    const courses = await responseJSON.json();
-    return courses;// The value that we return becomes the action payload  (extrareducers)
+    try {
+      const responseJSON = await fetch("http://localhost:3005/courses");
+      const courses = await responseJSON.json();
+      return courses; // The value that we return becomes the action payload  (extrareducers)
+    } catch (error) {
+      return error;
+    }
   },
 );
 
@@ -29,6 +33,9 @@ export const coursesSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(fetchCoursesAsync.fulfilled, (store, { payload }) => {
       store.push(...payload);
+    });
+    builder.addCase(fetchCoursesAsync.rejected, (store, { payload }) => {
+      // set error here so UI gets the error
     });
   },
 });
