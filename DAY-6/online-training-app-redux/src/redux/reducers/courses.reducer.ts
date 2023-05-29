@@ -3,19 +3,6 @@ import { CourseModel } from "../../models/course.model";
 
 let initialState: CourseModel[] = [];
 
-export const fetchCoursesAsync = createAsyncThunk<CourseModel[]>(
-  "courses/fetchAllCourses",
-  async () => {
-    try {
-      const responseJSON = await fetch("http://localhost:3005/courses");
-      const courses = await responseJSON.json();
-      return courses; // The value that we return becomes the action payload  (extrareducers)
-    } catch (error) {
-      return error;
-    }
-  },
-);
-
 export const coursesSlice = createSlice({
   name: "courses",
   initialState,
@@ -29,16 +16,12 @@ export const coursesSlice = createSlice({
       store = store.filter(c => c.id !== action.payload);
       return store;
     },
-  },
-  extraReducers(builder) {
-    builder.addCase(fetchCoursesAsync.fulfilled, (store, { payload }) => {
+    setCourses: (store, { payload }: PayloadAction<CourseModel[]>) => {
       store.push(...payload);
-    });
-    builder.addCase(fetchCoursesAsync.rejected, (store, { payload }) => {
-      // set error here so UI gets the error
-    });
+    },
   },
 });
 
-export const { incrementLikes, deleteCourse } = coursesSlice.actions;
+export const { incrementLikes, deleteCourse, setCourses } =
+  coursesSlice.actions;
 export default coursesSlice.reducer;

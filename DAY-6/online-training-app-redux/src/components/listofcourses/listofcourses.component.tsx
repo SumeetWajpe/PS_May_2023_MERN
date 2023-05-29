@@ -2,8 +2,8 @@ import Course from "../course/course.component";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
 import { useEffect } from "react";
-import { fetchCoursesAsync } from "../../redux/reducers/courses.reducer";
 import { AppDispatch } from "../../redux/store/store";
+import { sagaActions } from "../../saga/sagaActions";
 
 export default function ListOfCourses() {
   const courses = useSelector((state: RootState) => state.courses);
@@ -13,7 +13,7 @@ export default function ListOfCourses() {
   ));
 
   useEffect(() => {
-    dispatch(fetchCoursesAsync());
+    dispatch({ type: sagaActions.FETCH_COURSES_SAGA_ACTION });
   }, []);
 
   return (
