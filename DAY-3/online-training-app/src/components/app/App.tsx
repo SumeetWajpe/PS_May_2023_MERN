@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ListOfCourses from "../listofcourses/listofcourses.component";
 import { Message } from "../functional/message.functional";
 import { Counter } from "../functional/counter";
-import Posts from "../posts/posts.component";
+// import Posts from "../posts/posts.component";
 import GetpostById from "../postbyid/getpostbyid";
 import { GrandParent } from "../usingcontextapi/usingcontextapi.component";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -18,6 +18,8 @@ import Dashboard from "../dashboard/dashboard.component";
 import Account from "../account/account.component";
 import Profile from "../profile/profile.component";
 
+const Posts = React.lazy(() => import("../posts/posts.component")); // create a seperate bundle for posts component
+
 export default function App() {
   return (
     <>
@@ -29,7 +31,14 @@ export default function App() {
           {/* <Route path="/newcourse" element={<NewCourse />} /> */}
           <Route path="/newcourse" element={<NewCourseWithReactHookForm />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route
+            path="/posts"
+            element={
+              <Suspense fallback={<strong>Loading...</strong>}>
+                <Posts />
+              </Suspense>
+            }
+          />
           <Route path="/postdetails/:id" element={<PostDetails />} />
 
           {/* Nested Routes */}
