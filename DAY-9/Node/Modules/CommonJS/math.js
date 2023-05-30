@@ -6,5 +6,5 @@ const PI = 3.14;
 
 const Square = x => x * x;
 
-module.exports.Add = Add;
+module.exports.Addition = Add;
 module.exports.Square = Square;
