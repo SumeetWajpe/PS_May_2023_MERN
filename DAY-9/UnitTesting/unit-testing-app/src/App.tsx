@@ -13,7 +13,7 @@ export default class App extends React.Component<{},CounterState> {
       <>
         <strong>{this.state.count}</strong>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-          ++
+          +++
         </button>
       </>
     );

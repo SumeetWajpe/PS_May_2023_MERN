@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the app component correctly 1`] = `
+Array [
+  <strong>
+    0
+  </strong>,
+  <button
+    onClick={[Function]}
+  >
+    +++
+  </button>,
+]
+`;
