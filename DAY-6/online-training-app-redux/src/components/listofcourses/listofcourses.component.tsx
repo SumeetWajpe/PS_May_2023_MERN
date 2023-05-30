@@ -13,8 +13,9 @@ export default function ListOfCourses() {
   ));
 
   useEffect(() => {
-    console.log("Dispatching FETCH_COURSES_SAGA_ACTION..");
-    dispatch({ type: sagaActions.FETCH_COURSES_SAGA_ACTION });
+    if (courses.length == 0) {
+      dispatch({ type: sagaActions.FETCH_COURSES_SAGA_ACTION });
+    }
   }, []);
 
   return (
