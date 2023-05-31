@@ -11,6 +11,10 @@ function GetCount(maxIteration) {
     let counter = 0;
     let timer = setInterval(() => {
       if (counter < maxIteration) {
+        if (counter == 8) {
+          e.emit("error", counter);
+          clearInterval(timer);
+        }
         e.emit("data", counter++);
       } else if (counter == maxIteration) {
         clearInterval(timer);
@@ -28,6 +32,9 @@ evt.on("start", () => {
 });
 evt.on("data", currCount => {
   console.log("Received Data -> " + currCount);
+});
+evt.on("error", currCount => {
+  console.log("Error Occurred -> " + currCount);
 });
 
 console.log("Program Ended !");
