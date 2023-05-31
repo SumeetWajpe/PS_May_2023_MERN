@@ -26,6 +26,14 @@ const server = http.createServer((req, res) => {
         res.end(dataFromFile);
       }
     });
+  } else if (req.url == "/products") {
+    let products = [
+      { id: 1, title: "LED TV", price: 40000 },
+      { id: 2, title: "MacBook Pro", price: 250000 },
+    ];
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(products));
   }
 });
 
