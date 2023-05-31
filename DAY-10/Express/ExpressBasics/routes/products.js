@@ -13,4 +13,12 @@ router.post("/newproduct", (req, res) => {
   res.send({ msg: "New product added successfully !" });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  let { id } = req.params; // parameters
+  //   req.query // query string
+  let productList = products.filter(p => p.id !== id); // splice - index
+  products = productList;
+  res.send({ msg: "Product deleted successfully" });
+});
+
 module.exports = router;
