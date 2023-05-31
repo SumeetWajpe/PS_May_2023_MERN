@@ -11,6 +11,14 @@ const server = http.createServer((req, res) => {
   readableStream.pipe(res);
 });
 
+let io = socket(server);
+io.sockets.on("connection", skt => {
+  setInterval(() => {
+    let dataToBeSent = new Date();
+    skt.emit("msg_from_server_peer", dataToBeSent);
+  }, 2000);
+});
+
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
