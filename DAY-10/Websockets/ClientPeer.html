@@ -7,13 +7,25 @@
     <title>Document</title>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+      let socket = null;
       function Initialize() {
-        let socket = io.connect();
+        socket = io.connect();
         socket.on("msg_from_server_peer", dataFromServerPeer => {
           console.log(dataFromServerPeer);
         });
       }
+
+      function SendMessage() {
+        let dataToBeSent = document.querySelector("#txtMsg").value;
+        socket.emit("msg_from_client_peer", dataToBeSent);
+      }
     </script>
   </head>
-  <body onload="Initialize()"></body>
+  <body onload="Initialize()">
+    <div>
+      <label for="txtMsg">Enter message here :</label>
+      <input type="text" id="txtMsg" />
+      <button onclick="SendMessage()">Send</button>
+    </div>
+  </body>
 </html>
