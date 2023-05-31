@@ -6,6 +6,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   fs.readFile("Index.html", (err, dataFromFile) => {
     if (err) {
+      console.log("Error !");
       console.log(err);
     } else {
       res.statusCode = 200;
