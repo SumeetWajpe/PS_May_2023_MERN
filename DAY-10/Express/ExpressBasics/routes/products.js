@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router();
+let products = require("../models/products.model");
 
 router.get("/", (req, res) => {
-  let products = [
-    { id: 1, title: "LED TV", price: 40000 },
-    { id: 2, title: "MacBook Pro M2", price: 250000 },
-  ];
   res.json(products);
+});
+
+router.post("/newproduct", (req, res) => {
+  let newProduct = req.body;
+  // add new product
+  products.push(newProduct); // db
+  res.send({ msg: "New product added successfully !" });
 });
 
 module.exports = router;

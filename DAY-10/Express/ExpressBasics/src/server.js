@@ -7,6 +7,7 @@ const productsRouter = require("../routes/products");
 
 // Express middleware
 app.use(express.static("src/static"));
+app.use(express.json()); // read json from req payload & populate req.body
 
 app.get("/", (req, res) => {
   //   res.send({ msg: "Hello World!" });
