@@ -8,6 +8,11 @@ app.get("/", (req, res) => {
   res.sendFile("Index.html", { root: __dirname });
 });
 
+app.get("/script.js", (req, res) => {
+  console.log(__dirname);
+  res.sendFile("script.js", { root: __dirname + "/static" });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
