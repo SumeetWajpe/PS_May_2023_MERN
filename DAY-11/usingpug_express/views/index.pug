@@ -1,8 +1,11 @@
 extends layout
 
+block script 
+  script(src="/javascripts/script.js")
+
 block content
   h1 Total courses : #{courses.length}
-  ul 
+  ul(class="list-group") 
     each course in courses 
-      li= course.title
+      li(class="list-group-item") #{course.title}
   
