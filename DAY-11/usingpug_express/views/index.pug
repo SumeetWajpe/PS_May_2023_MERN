@@ -4,8 +4,10 @@ block script
   script(src="/javascripts/script.js")
 
 block content
-  h1 Total courses : #{courses.length}
-  ul(class="list-group") 
-    each course in courses 
-      li(class="list-group-item") #{course.title}
+  h1= course.title
+  video(src="/video" controls) 
+  //- h1 Total courses : #{courses.length}
+  //- ul(class="list-group") 
+  //-   each course in courses 
+  //-     li(class="list-group-item") #{course.title}
   
