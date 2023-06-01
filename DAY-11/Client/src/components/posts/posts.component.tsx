@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { PostsModel } from "../../models/posts.model";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store/store";
@@ -10,7 +8,7 @@ const Posts = () => {
   let postsData = useSelector((store: RootState) => store.posts);
   const { error, loading, posts } = postsData;
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   if (loading)
     return (

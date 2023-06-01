@@ -11,7 +11,9 @@ export default function CourseDetails() {
   useEffect(() => {
     async function fetchCourse() {
       try {
+        // fetch record from redux store instead
         let res = await fetch(`http://localhost:3500/courses/${id}`);
+        console.log(res);
         let theCourse = await res.json();
         setCourse(theCourse);
       } catch (error) {
@@ -57,7 +59,11 @@ export default function CourseDetails() {
                 color="orange"
               />
             </div>
-            <p>{course.likes}</p>
+            <p>
+              <button className="btn btn-primary">
+                {course.likes} <i className="fa-regular fa-thumbs-up"></i>
+              </button>
+            </p>
             <p>₹. {course.price}</p>
             <p>{course.description}</p>
           </div>

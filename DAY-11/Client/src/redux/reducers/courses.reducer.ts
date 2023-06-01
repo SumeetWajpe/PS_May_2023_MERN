@@ -1,4 +1,4 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CourseModel } from "../../models/course.model";
 
 // a good solution would be to have initialState to contain -> {loading:true,error,courses:[]}
@@ -20,9 +20,13 @@ export const coursesSlice = createSlice({
     setCourses: (store, { payload }: PayloadAction<CourseModel[]>) => {
       store.push(...payload);
     },
+    addCourse: (store, action: PayloadAction<CourseModel>) => {
+      store.push(action.payload);
+      return store;
+    },
   },
 });
 
-export const { incrementLikes, deleteCourse, setCourses } =
+export const { incrementLikes, deleteCourse, setCourses,addCourse } =
   coursesSlice.actions;
 export default coursesSlice.reducer;

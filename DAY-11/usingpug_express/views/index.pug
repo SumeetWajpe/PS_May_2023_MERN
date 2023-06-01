@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Total courses : #{courses.length}
+  ul 
+    each course in courses 
+      li= course.title
+  

@@ -2,6 +2,9 @@ import React from "react";
 import { CourseModel } from "../../models/course.model";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store/store";
+import { addCourse } from "../../redux/reducers/courses.reducer";
 
 type CourseInput = {
   CourseId: number;
@@ -22,6 +25,7 @@ export default function NewCourseWithReactHookForm() {
     formState: { errors },
   } = useForm<CourseInput>({ mode: "onChange" });
   const navigate = useNavigate();
+  let dispatch = useDispatch<AppDispatch>();
   return (
     <div>
       <h2>New Course</h2>
@@ -29,7 +33,7 @@ export default function NewCourseWithReactHookForm() {
         <form
           onSubmit={handleSubmit((data: CourseInput) => {
             let newCourse = new CourseModel(
-              data.CourseId,
+              Number(data.CourseId),
               data.CourseTitle,
               data.CoursePrice,
               data.CourseRating,
@@ -41,7 +45,7 @@ export default function NewCourseWithReactHookForm() {
             );
 
             // fetch api(POST) -> newCourse
-            fetch("http://localhost:3005/courses", {
+            fetch("http://localhost:3500/newcourse", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -49,8 +53,9 @@ export default function NewCourseWithReactHookForm() {
               body: JSON.stringify(newCourse),
             })
               .then(res => res.json())
-              .then(course => {
-                if (course) {
+              .then(courseResponse => {
+                if (courseResponse.status) {
+                  dispatch(addCourse(courseResponse.newCourse));
                   navigate("/");
                 }
               });

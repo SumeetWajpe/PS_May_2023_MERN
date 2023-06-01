@@ -8,7 +8,9 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
+// Middlewares
 app.use(cors());
+app.use(express.json());
 app.use("/", courseRouter);
 
 app.listen(port, () => {

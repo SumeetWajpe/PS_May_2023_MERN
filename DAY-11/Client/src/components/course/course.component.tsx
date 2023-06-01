@@ -6,6 +6,7 @@ import {
   incrementLikes,
 } from "../../redux/reducers/courses.reducer";
 import { addItemToCart } from "../../redux/reducers/cart.reducer";
+import { Link } from "react-router-dom";
 
 type CourseProps = {
   coursedetails: CourseModel;
@@ -16,12 +17,15 @@ export default function Course(props: CourseProps): JSX.Element {
   return (
     <div className="col-md-3">
       <div className="card m-2 p-2">
-        <img
-          src={props.coursedetails.imageUrl}
-          height="150px"
-          className="card-img-top"
-          alt={props.coursedetails.title}
-        />
+        <Link to={"/coursedetails/" + props.coursedetails.id}>
+          <img
+            src={props.coursedetails.imageUrl}
+            height="150px"
+            className="card-img-top"
+            alt={props.coursedetails.title}
+          />
+        </Link>
+
         <div className="card-body p-0">
           <div className="d-flex justify-content-between align-items-center">
             <h5 className="card-title"> {props.coursedetails.title}</h5>

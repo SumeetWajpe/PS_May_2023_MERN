@@ -10,7 +10,9 @@ const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
+// Middlewares
 app.use((0, cors_1.default)());
+app.use(express_1.default.json());
 app.use("/", courses_route_1.default);
 app.listen(port, () => {
     console.log(`Server running @ port ${port} !`);
