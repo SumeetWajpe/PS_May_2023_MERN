@@ -1,11 +1,12 @@
 import express, { Express, Request, Response } from "express";
+import dotenv from "dotenv";
+import courseRouter from "./routes/courses.route";
+dotenv.config();
 
 const app: Express = express();
-const port = 3500;
+const port = process.env.PORT;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send({ msg: "Using Typescript with Express !" });
-});
+app.use("/", courseRouter);
 
 app.listen(port, () => {
   console.log(`Server running @ port ${port} !`);
