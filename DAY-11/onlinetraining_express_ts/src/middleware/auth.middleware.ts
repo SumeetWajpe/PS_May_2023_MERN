@@ -11,7 +11,7 @@ export const isAuthenticated = (
   if (token) {
     jwt.verify(
       token,
-      process?.env?.SECRECT_KEY || "OtherSecretKey",
+      process?.env?.SECRET_KEY || "OtherSecretKey",
       (err, decodedToken) => {
         if (err) res.status(500).json({ err: "Invalid Token" });
         console.log(token);

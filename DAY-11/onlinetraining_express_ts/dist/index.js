@@ -8,6 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const courses_route_1 = __importDefault(require("./routes/courses.route"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const auth_1 = __importDefault(require("./routes/auth"));
 dotenv_1.default.config();
 mongoose_1.default.connect(process.env.ONLINETRAININGDB_MONGO_CONNECTION_STRING || "", {});
 mongoose_1.default.connection.on("open", () => {
@@ -19,6 +20,7 @@ const port = process.env.PORT;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use("/", courses_route_1.default);
+app.use("/auth", auth_1.default);
 app.listen(port, () => {
     console.log(`Server running @ port ${port} !`);
 });

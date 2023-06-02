@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import courseRouter from "./routes/courses.route";
 import cors from "cors";
 import mongoose from "mongoose";
+import authRouter from "./routes/auth";
 
 dotenv.config();
 mongoose.connect(
@@ -21,6 +22,7 @@ const port = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use("/", courseRouter);
+app.use("/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Server running @ port ${port} !`);

@@ -14,8 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const course_model_1 = require("../models/course.model");
+const auth_middleware_1 = require("../middleware/auth.middleware");
 const router = express_1.default.Router();
-router.get("/courses", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/courses", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let courses = yield course_model_1.Course.find({}); // select * from
         res.json(courses);

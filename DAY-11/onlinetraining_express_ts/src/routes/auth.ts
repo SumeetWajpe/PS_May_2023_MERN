@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
 const router = express.Router();
 import jwt from "jsonwebtoken";
-router.post("/auth/login", (req: Request, res: Response) => {
+router.post("/login", (req: Request, res: Response) => {
   // check user in db !
   // sign()
- // console.log(req.body);
+  // console.log(req.body);
   let payload = { name: "John Hammer", lastLogin: "Monday 25th" };
   jwt.sign(
     payload,
@@ -16,3 +16,5 @@ router.post("/auth/login", (req: Request, res: Response) => {
     },
   );
 });
+
+export default router;
