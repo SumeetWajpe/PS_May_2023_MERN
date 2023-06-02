@@ -2,8 +2,17 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import courseRouter from "./routes/courses.route";
 import cors from "cors";
+import mongoose from "mongoose";
 
 dotenv.config();
+mongoose.connect(
+  process.env.ONLINETRAININGDB_MONGO_CONNECTION_STRING || "",
+  {},
+);
+
+mongoose.connection.on("open", () => {
+  console.log(`Online Training DB connected !`);
+});
 
 const app: Express = express();
 const port = process.env.PORT;

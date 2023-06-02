@@ -7,7 +7,12 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const courses_route_1 = __importDefault(require("./routes/courses.route"));
 const cors_1 = __importDefault(require("cors"));
+const mongoose_1 = __importDefault(require("mongoose"));
 dotenv_1.default.config();
+mongoose_1.default.connect(process.env.ONLINETRAININGDB_MONGO_CONNECTION_STRING || "", {});
+mongoose_1.default.connection.on("open", () => {
+    console.log(`Online Training DB connected !`);
+});
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 // Middlewares
