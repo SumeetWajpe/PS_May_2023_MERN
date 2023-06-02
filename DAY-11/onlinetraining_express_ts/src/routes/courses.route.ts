@@ -12,17 +12,27 @@ router.get("/courses", async (req: Request, res: Response) => {
   }
 });
 
-router.get("/courses/:id", (req: Request, res: Response) => {
+router.get("/courses/:id", async (req: Request, res: Response) => {
   let { id } = req.params;
+
   // find the course & return
-  // let theCourse = courses.find(c => c.id === Number(id));
-  // res.json(theCourse);
+  let theCourse = await Course.findOne({ id });
+  res.json(theCourse);
 });
 
-router.post("/newcourse", (req: Request, res: Response) => {
+router.post("/newcourse", async (req: Request, res: Response) => {
   let newCourse = req.body;
-  // courses.push(newCourse);
-  res.json({ msg: "Course deleted successfully !", status: true, newCourse });
+
+  // create new instance of Mongoose Model
+  let newCourseToBeInserted = new Course({ ...newCourse });
+  await newCourseToBeInserted.save();
+  res.json({ msg: "Course added successfully !", status: true, newCourse });
+});
+
+router.delete("/delete/:id", async (req: Request, res: Response) => {
+  let { id } = req.params;
+  await Course.deleteOne({ id });
+  res.json({ msg: "Course deleted successfully !", status: true });
 });
 
 export default router;

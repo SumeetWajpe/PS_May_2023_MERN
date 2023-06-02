@@ -24,15 +24,22 @@ router.get("/courses", (req, res) => __awaiter(void 0, void 0, void 0, function*
         console.log(error);
     }
 }));
-router.get("/courses/:id", (req, res) => {
+router.get("/courses/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let { id } = req.params;
     // find the course & return
-    // let theCourse = courses.find(c => c.id === Number(id));
-    // res.json(theCourse);
-});
-router.post("/newcourse", (req, res) => {
+    let theCourse = yield course_model_1.Course.findOne({ id });
+    res.json(theCourse);
+}));
+router.post("/newcourse", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let newCourse = req.body;
-    // courses.push(newCourse);
-    res.json({ msg: "Course deleted successfully !", status: true, newCourse });
-});
+    // create new instance of Mongoose Model
+    let newCourseToBeInserted = new course_model_1.Course(Object.assign({}, newCourse));
+    yield newCourseToBeInserted.save();
+    res.json({ msg: "Course added successfully !", status: true, newCourse });
+}));
+router.delete("/delete/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let { id } = req.params;
+    yield course_model_1.Course.deleteOne({ id });
+    res.json({ msg: "Course deleted successfully !", status: true });
+}));
 exports.default = router;

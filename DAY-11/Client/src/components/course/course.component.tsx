@@ -7,6 +7,7 @@ import {
 } from "../../redux/reducers/courses.reducer";
 import { addItemToCart } from "../../redux/reducers/cart.reducer";
 import { Link } from "react-router-dom";
+import { sagaActions } from "../../saga/sagaActions";
 
 type CourseProps = {
   coursedetails: CourseModel;
@@ -50,7 +51,12 @@ export default function Course(props: CourseProps): JSX.Element {
             </button>
             <button
               className="btn btn-danger mx-1"
-              onClick={() => dispatch(deleteCourse(props.coursedetails.id))}
+              onClick={() =>
+                dispatch({
+                  type: sagaActions.DELETE_A_COURSE,
+                  payload: props.coursedetails.id,
+                })
+              }
             >
               <i className="fa-solid fa-trash"></i>
             </button>

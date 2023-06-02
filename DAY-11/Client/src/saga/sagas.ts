@@ -2,9 +2,10 @@ import { call, takeLatest, put, retry } from "redux-saga/effects";
 import { sagaActions } from "./sagaActions";
 import axios from "axios";
 import { CourseModel } from "../models/course.model";
-import { setCourses } from "../redux/reducers/courses.reducer";
+import { deleteCourse, setCourses } from "../redux/reducers/courses.reducer";
 import { PostsModel } from "../models/posts.model";
 import { setPosts, setPostsError } from "../redux/reducers/posts.reducer";
+import { AnyAction, PayloadAction } from "@reduxjs/toolkit";
 
 type Response = {
   data: any;
@@ -21,6 +22,10 @@ function GetCourses() {
 
 function GetPosts() {
   return axios.get<PostsModel[]>("https://jsonplaceholder.typicode.com/posts");
+}
+
+function DeleteCourse(id: number) {
+  return axios.delete("http://localhost:3500/delete/" + id);
 }
 
 //Worker Saga
@@ -58,9 +63,16 @@ export function* fetchPostsWithRetry() {
     yield put(setPostsError(error.message as string)); // dispatching an action with Error message as payload
   }
 }
+
+export function* deleteACourse(action: PayloadAction<number>) {
+  let id: number = action.payload;
+  let response: Response = yield call(DeleteCourse, id);
+  yield put(deleteCourse(id)); // dispatching
+}
 export default function* rootSaga() {
   console.log("Root Saga..");
   yield takeLatest(sagaActions.FETCH_COURSES_SAGA_ACTION, fetchCourses);
   // yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPosts);
   yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPostsWithRetry);
+  yield takeLatest(sagaActions.DELETE_A_COURSE as any, deleteACourse);
 }
