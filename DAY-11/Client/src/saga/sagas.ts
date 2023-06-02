@@ -5,7 +5,7 @@ import { CourseModel } from "../models/course.model";
 import { deleteCourse, setCourses } from "../redux/reducers/courses.reducer";
 import { PostsModel } from "../models/posts.model";
 import { setPosts, setPostsError } from "../redux/reducers/posts.reducer";
-import { AnyAction, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 type Response = {
   data: any;
@@ -67,12 +67,14 @@ export function* fetchPostsWithRetry() {
 export function* deleteACourse(action: PayloadAction<number>) {
   let id: number = action.payload;
   let response: Response = yield call(DeleteCourse, id);
-  yield put(deleteCourse(id)); // dispatching
+  if (response.data.status) {
+    yield put(deleteCourse(id)); // dispatching
+  }
 }
 export default function* rootSaga() {
   console.log("Root Saga..");
   yield takeLatest(sagaActions.FETCH_COURSES_SAGA_ACTION, fetchCourses);
   // yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPosts);
   yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPostsWithRetry);
-  yield takeLatest(sagaActions.DELETE_A_COURSE as any, deleteACourse);
+  yield takeLatest(sagaActions.DELETE_A_COURSE, deleteACourse);
 }
