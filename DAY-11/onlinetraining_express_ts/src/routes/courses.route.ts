@@ -4,18 +4,14 @@ import { isAuthenticated } from "../middleware/auth.middleware";
 
 const router: Router = express.Router();
 
-router.post(
-  "/courses",
-  isAuthenticated,
-  async (req: Request, res: Response) => {
-    try {
-      let courses = await Course.find({}); // select * from
-      res.json(courses);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-);
+router.get("/courses", isAuthenticated, async (req: Request, res: Response) => {
+  try {
+    let courses = await Course.find({}); // select * from
+    res.json(courses);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 router.get("/courses/:id", async (req: Request, res: Response) => {
   let { id } = req.params;
