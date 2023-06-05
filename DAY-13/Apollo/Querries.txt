@@ -1,0 +1,13 @@
+
+==== Get a course by Id (variables) =====
+query GetCourseById($courseId: ID!) {
+  course(id: $courseId) {
+    title
+  }
+}
+====== Get All Courses with title =====
+query GetAllCourses {
+  courses{
+    title
+  }
+}
