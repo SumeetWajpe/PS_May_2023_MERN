@@ -5,16 +5,10 @@ import { useGetAuthenticateUserStatus } from "../../hooks/authHook";
 import { JsxElement } from "typescript";
 
 export default function Dashboard() {
-  let isLoggedIn: boolean = useGetAuthenticateUserStatus();
-
-  if (isLoggedIn == true) {
-    return (
-      <div>
-        <Header />
-        <Outlet />
-      </div>
-    );
-  } else {
-    <Navigate to="/" />;
-  }
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  );
 }

@@ -10,7 +10,7 @@ export default function CartItemsCount() {
       <i className="fa-solid fa-cart-shopping"></i>{" "}
       <span className="badge bg-light">
         {" "}
-        <Link to="/cart">{cart.length}</Link>{" "}
+        <Link to="/dashboard/cart">{cart.length}</Link>{" "}
       </span>
     </button>
   );
