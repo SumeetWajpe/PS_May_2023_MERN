@@ -14,8 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const course_model_1 = require("../models/course.model");
+const auth_middleware_1 = require("../middleware/auth.middleware");
 const router = express_1.default.Router();
-router.get("/courses", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/courses", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let courses = yield course_model_1.Course.find({}); // select * from
         res.json(courses);
@@ -24,20 +25,20 @@ router.get("/courses", (req, res) => __awaiter(void 0, void 0, void 0, function*
         console.log(error);
     }
 }));
-router.get("/courses/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/courses/:id", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let { id } = req.params;
     // find the course & return
     let theCourse = yield course_model_1.Course.findOne({ id });
     res.json(theCourse);
 }));
-router.post("/newcourse", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/newcourse", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let newCourse = req.body;
     // create new instance of Mongoose Model
     let newCourseToBeInserted = new course_model_1.Course(Object.assign({}, newCourse));
     yield newCourseToBeInserted.save();
     res.json({ msg: "Course added successfully !", status: true, newCourse });
 }));
-router.delete("/delete/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.delete("/delete/:id", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let { id } = req.params;
     yield course_model_1.Course.deleteOne({ id });
     res.json({ msg: "Course deleted successfully !", status: true });

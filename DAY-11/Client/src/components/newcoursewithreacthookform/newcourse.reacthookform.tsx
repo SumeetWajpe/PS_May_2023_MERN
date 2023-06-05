@@ -49,6 +49,7 @@ export default function NewCourseWithReactHookForm() {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage["auth-token"]}`,
               },
               body: JSON.stringify(newCourse),
             })

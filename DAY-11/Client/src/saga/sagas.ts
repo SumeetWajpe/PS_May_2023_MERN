@@ -19,8 +19,12 @@ type Response = {
   statusText: string;
 };
 
-function GetCourses() {
-  return axios.get<CourseModel[]>("http://localhost:3500/courses");
+function GetCourses(token: string) {
+  return axios.get<CourseModel[]>("http://localhost:3500/courses", {
+    headers: {
+      Authorization: `Bearer ${localStorage["auth-token"]}`,
+    },
+  });
 }
 
 function GetPosts() {
@@ -32,16 +36,17 @@ function AuthenticateUserFromServer(user: UserModel) {
 }
 
 function DeleteCourse(id: number) {
-  return axios.delete("http://localhost:3500/delete/" + id);
+  return axios.delete("http://localhost:3500/delete/" + id, {
+    headers: {
+      Authorization: `Bearer ${localStorage["auth-token"]}`,
+    },
+  });
 }
 
 //Worker Saga
-export function* fetchCourses() {
+export function* fetchCourses(action: PayloadAction<string>) {
   try {
-    console.log("Fetching courses..");
-    // async
-    // setCourses(response)
-    const response: Response = yield call(GetCourses);
+    const response: Response = yield call(GetCourses, action.payload);
     yield put(setCourses(response.data)); // dispatching
   } catch (error) {
     //yield put(handleError(error)); // dispatching an action with Error message as payload
@@ -72,10 +77,14 @@ export function* fetchPostsWithRetry() {
 }
 
 export function* deleteACourse(action: PayloadAction<number>) {
-  let id: number = action.payload;
-  let response: Response = yield call(DeleteCourse, id);
-  if (response.data.status) {
-    yield put(deleteCourse(id)); // dispatching
+  try {
+    let id: number = action.payload;
+    let response: Response = yield call(DeleteCourse, id);
+    if (response.data.status) {
+      yield put(deleteCourse(id)); // dispatching
+    }
+  } catch (error) {
+    console.log(error); // dispatch an action for error as payload
   }
 }
 
@@ -86,7 +95,6 @@ export function* authenticateUser(action: PayloadAction<UserModel>) {
   if (response.data.status) {
     localStorage["auth-token"] = response.data.token;
     yield put(addExistingUser({ user, isUserAuthenticated: true })); // dispatching
-  
   }
 }
 

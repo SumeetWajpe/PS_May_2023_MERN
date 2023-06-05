@@ -14,7 +14,10 @@ export default function ListOfCourses() {
 
   useEffect(() => {
     if (courses.length === 0) {
-      dispatch({ type: sagaActions.FETCH_COURSES_SAGA_ACTION });
+      dispatch({
+        type: sagaActions.FETCH_COURSES_SAGA_ACTION,
+        payload: localStorage["auth-token"],
+      });
     }
   }, [courses]);
 
