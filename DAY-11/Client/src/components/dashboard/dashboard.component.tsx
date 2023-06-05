@@ -1,13 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Header from "../header/header.component";
+import { useGetAuthenticateUserStatus } from "../../hooks/authHook";
+import { JsxElement } from "typescript";
 
 export default function Dashboard() {
-  return (
-    <div>
-      <Header />
+  let isLoggedIn: boolean = useGetAuthenticateUserStatus();
 
-      <Outlet />
-    </div>
-  );
+  if (isLoggedIn == true) {
+    return (
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    );
+  } else {
+    <Navigate to="/" />;
+  }
 }

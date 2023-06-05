@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CourseModel } from "../../models/course.model";
 import { UserModel } from "../../models/user.model";
 
-type UserAuth = {
+export type UserAuth = {
   isUserAuthenticated: boolean;
   user: UserModel;
 };

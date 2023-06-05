@@ -16,7 +16,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={Dashboard()}>
             <Route index path="" element={<ListOfCourses />} />
             <Route path="coursedetails/:id" element={<CourseDetails />} />
             {/* <Route path="/newcourse" element={<NewCourse />} /> */}
