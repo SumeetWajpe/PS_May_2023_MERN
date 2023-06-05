@@ -10,12 +10,17 @@ router.post("/login", (req, res) => {
     // check user in db !
     // sign()
     // console.log(req.body);
-    let payload = { name: "John Hammer", lastLogin: "Monday 25th" };
-    jsonwebtoken_1.default.sign(payload, process.env.SECRET_KEY || "OtherSecretKey", { expiresIn: "2 Days" }, (err, token) => {
-        if (err)
-            console.log(err);
-        else
-            return res.json({ token });
-    });
+    let user = req.body;
+    console.log(user);
+    if (user.name == "john") {
+        // db
+        let payload = { name: user.name, lastLogin: "Monday 25th" };
+        jsonwebtoken_1.default.sign(payload, process.env.SECRET_KEY || "OtherSecretKey", { expiresIn: "2 Days" }, (err, token) => {
+            if (err)
+                console.log(err);
+            else
+                return res.json({ token, status: true });
+        });
+    }
 });
 exports.default = router;

@@ -6,6 +6,8 @@ import { deleteCourse, setCourses } from "../redux/reducers/courses.reducer";
 import { PostsModel } from "../models/posts.model";
 import { setPosts, setPostsError } from "../redux/reducers/posts.reducer";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { UserModel } from "../models/user.model";
+import { addExistingUser } from "../redux/reducers/login.reducer";
 
 type Response = {
   data: any;
@@ -22,6 +24,10 @@ function GetCourses() {
 
 function GetPosts() {
   return axios.get<PostsModel[]>("https://jsonplaceholder.typicode.com/posts");
+}
+
+function AuthenticateUserFromServer(user: UserModel) {
+  return axios.post("http://localhost:3500/auth/login", { name: user.name });
 }
 
 function DeleteCourse(id: number) {
@@ -71,10 +77,22 @@ export function* deleteACourse(action: PayloadAction<number>) {
     yield put(deleteCourse(id)); // dispatching
   }
 }
+
+export function* authenticateUser(action: PayloadAction<UserModel>) {
+  console.log(action);
+  let user: UserModel = action.payload;
+  let response: Response = yield call(AuthenticateUserFromServer, user);
+  if (response.data.status) {
+    localStorage["auth-token"] = response.data.token;
+    yield put(addExistingUser({ user, isUserAuthenticated: true })); // dispatching
+  }
+}
+
 export default function* rootSaga() {
   console.log("Root Saga..");
   yield takeLatest(sagaActions.FETCH_COURSES_SAGA_ACTION, fetchCourses);
   // yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPosts);
   yield takeLatest(sagaActions.FETCH_POSTS_SAGA_ACTION, fetchPostsWithRetry);
   yield takeLatest(sagaActions.DELETE_A_COURSE, deleteACourse);
+  yield takeLatest(sagaActions.AUTHENTICATE_USER, authenticateUser);
 }

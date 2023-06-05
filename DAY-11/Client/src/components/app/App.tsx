@@ -8,6 +8,7 @@ import Header from "../header/header.component";
 import Cart from "../cart/cart.component";
 import Error from "../error/error.component";
 import ListOfCourses from "../listofcourses/listofcourses.component";
+import Login from "../login/login.component";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/postdetails/:id" element={<PostDetails />} />
+          <Route path="/login" element={<Login />} />
 
           {/* Wild card route handler - 404 */}
           <Route path="*" element={<Error />} />
