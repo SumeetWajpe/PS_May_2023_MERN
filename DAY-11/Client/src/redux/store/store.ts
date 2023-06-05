@@ -4,6 +4,7 @@ import postsReducer from "../reducers/posts.reducer";
 import cartReducer from "../reducers/cart.reducer";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../../saga/sagas";
+import loginReducer from "../reducers/login.reducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,6 +13,7 @@ const store = configureStore({
     courses: coursesReducer,
     posts: postsReducer,
     cart: cartReducer,
+    login: loginReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat([sagaMiddleware]),

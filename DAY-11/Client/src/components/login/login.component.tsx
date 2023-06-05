@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store/store";
 import { sagaActions } from "../../saga/sagaActions";
 import { UserModel } from "../../models/user.model";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   let dispatch = useDispatch<AppDispatch>();
+  let navigate = useNavigate();
   let [user, setUser] = useState<UserModel>(new UserModel());
+  let isAuthenticated = useSelector<RootState>(
+    store => store.login.isUserAuthenticated,
+  );
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated]);
   return (
     // <div className="mainContainer">
     <div className="wrapper fadeInDown d-flex justify-content-center align-items-center">
@@ -25,7 +36,6 @@ export default function Login() {
           onSubmit={e => {
             e.preventDefault();
             // dispatch
-            console.log("User", user);
             dispatch({ type: sagaActions.AUTHENTICATE_USER, payload: user });
           }}
         >

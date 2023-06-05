@@ -8,6 +8,7 @@ import { setPosts, setPostsError } from "../redux/reducers/posts.reducer";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { UserModel } from "../models/user.model";
 import { addExistingUser } from "../redux/reducers/login.reducer";
+import { useNavigate } from "react-router-dom";
 
 type Response = {
   data: any;
@@ -85,6 +86,7 @@ export function* authenticateUser(action: PayloadAction<UserModel>) {
   if (response.data.status) {
     localStorage["auth-token"] = response.data.token;
     yield put(addExistingUser({ user, isUserAuthenticated: true })); // dispatching
+  
   }
 }
 
