@@ -12,5 +12,15 @@ export const resolvers = {
     },
     Mutation: {
         deleteCourse: async (_, { id }) => await courses.findOneAndDelete({ id }),
+        addNewCourse: async (_, { newcourse }) => {
+            try {
+                let newCourseToBeAdded = new courses({ ...newcourse });
+                await newCourseToBeAdded.save();
+                return newCourseToBeAdded;
+            }
+            catch (error) {
+                console.log(error);
+            }
+        },
     },
 };

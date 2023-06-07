@@ -26,7 +26,19 @@ export const typeDefs = `#graphql
         followers:Int
     }
 
+    input NewCourseInput{
+        id:ID!
+        title:String!
+        price:Int
+        rating:Int
+        likes:Int
+        imageUrl:String
+        description:String
+        trainerId:Int
+    }
+
     type Mutation{
         deleteCourse(id:ID!):Course
+        addNewCourse(newcourse:NewCourseInput):Course
     }
 `;

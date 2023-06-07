@@ -56,7 +56,7 @@ query CourseWithTrainer {
 }
 
 =========== Mutation =======
-mutation Mutation($deleteCourseId: ID!) {
+mutation DeleteCourseMutation($deleteCourseId: ID!) {
   deleteCourse(id: $deleteCourseId) {
     title
   }
