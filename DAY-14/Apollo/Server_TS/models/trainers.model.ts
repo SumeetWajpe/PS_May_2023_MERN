@@ -8,4 +8,4 @@ const TrainerSchema = new Schema({
   isCertified: Boolean,
   avatarUrl: String,
 });
-export const courses = mongoose.model("trainers_graphql", TrainerSchema);
+export const trainers = mongoose.model("trainers_graphql", TrainerSchema);

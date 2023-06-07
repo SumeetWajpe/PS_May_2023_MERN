@@ -9,5 +9,6 @@ const CourseSchema = new Schema({
   likes: Number,
   imageUrl: String,
   description: String,
+  trainerId: Number,
 });
 export const courses = mongoose.model("courses_graphql", CourseSchema);

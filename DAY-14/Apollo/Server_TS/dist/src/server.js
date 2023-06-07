@@ -12,6 +12,9 @@ mongoose.connect("mongodb://localhost:27017/onlinetrainingdb", {});
 mongoose.connection.on("open", () => {
     console.log(`Online Training DB connected !`);
 });
+mongoose.connection.on("error", err => {
+    console.log(err);
+});
 const server = new ApolloServer({
     typeDefs,
     resolvers,
