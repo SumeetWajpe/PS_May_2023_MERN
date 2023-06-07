@@ -54,3 +54,10 @@ query CourseWithTrainer {
     }
   }
 }
+
+=========== Mutation =======
+mutation Mutation($deleteCourseId: ID!) {
+  deleteCourse(id: $deleteCourseId) {
+    title
+  }
+}
