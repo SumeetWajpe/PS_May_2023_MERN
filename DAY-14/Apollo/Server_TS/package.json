@@ -1,0 +1,22 @@
+{
+  "name": "server_ts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && nodemon ./dist/src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.7.2",
+    "@types/cors": "^2.8.13",
+    "@types/node": "^20.2.5",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0"
+  }
+}
