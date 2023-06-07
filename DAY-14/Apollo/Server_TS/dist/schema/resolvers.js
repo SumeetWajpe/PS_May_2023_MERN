@@ -8,9 +8,9 @@ export const resolvers = {
         trainer: async (_, { id }) => await trainers.findOne({ id }),
     },
     Course: {
-        trainer: async (parent) => {
-            console.log(parent);
-            return await trainers.findOne({ id: parent.trainerId });
-        },
+        trainer: async (parent) => await trainers.findOne({ id: parent.trainerId }),
+    },
+    Mutation: {
+        deleteCourse: async (_, { id }) => await courses.findOneAndDelete({ id }),
     },
 };

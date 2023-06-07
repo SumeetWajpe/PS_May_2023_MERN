@@ -14,4 +14,8 @@ export const resolvers = {
     trainer: async (parent: CourseType) =>
       await trainers.findOne({ id: parent.trainerId }),
   },
+  Mutation: {
+    deleteCourse: async (_, { id }: { id: number }) =>
+      await courses.findOneAndDelete({ id }),
+  },
 };

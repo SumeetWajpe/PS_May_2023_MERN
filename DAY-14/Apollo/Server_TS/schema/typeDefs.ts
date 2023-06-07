@@ -25,4 +25,8 @@ export const typeDefs = `#graphql
         isCertified:Boolean
         followers:Int
     }
+
+    type Mutation{
+        deleteCourse(id:ID!):Course
+    }
 `;
