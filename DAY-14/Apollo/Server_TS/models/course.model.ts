@@ -10,4 +10,4 @@ const CourseSchema = new Schema({
   imageUrl: String,
   description: String,
 });
-export const courses = mongoose.model("courses", CourseSchema);
+export const courses = mongoose.model("courses_graphql", CourseSchema);

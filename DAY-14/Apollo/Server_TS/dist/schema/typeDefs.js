@@ -15,6 +15,7 @@ export const typeDefs = `#graphql
         imageUrl:String
         description:String
         trainer:Trainer
+        
     }
 
     type Trainer{
