@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "compile": "tsc",
+    "compile": "tsc --watch",
     "start": "npm run compile && nodemon ./dist/src/server.js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "mongoose": "^7.2.2"
   }
 }

@@ -6,9 +6,14 @@ const { json } = pkg;
 import express from "express";
 import { typeDefs } from "../schema/typeDefs.js";
 import { resolvers } from "../schema/resolvers.js";
+import mongoose from "mongoose";
 
 const app = express();
+mongoose.connect("mongodb://localhost:27017/onlinetrainingdb", {});
 
+mongoose.connection.on("open", () => {
+  console.log(`Online Training DB connected !`);
+});
 const server = new ApolloServer({
   typeDefs,
   resolvers,
