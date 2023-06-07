@@ -2,6 +2,8 @@ export const typeDefs = `#graphql
     type Query{
         courses:[Course] # [] denotes array
         course(id:ID!):Course
+        trainers:[Trainer]
+        trainer(id:ID!):Trainer
     }
 
     type Course{
@@ -11,9 +13,15 @@ export const typeDefs = `#graphql
         rating:Int
         likes:Int
         imageUrl:String
-        trainerName:String
-        avatarUrl:String
         description:String
+        trainer:Trainer
     }
 
+    type Trainer{
+        id:ID!  
+        name:String
+        avatarUrl:String
+        isCertified:Boolean
+        followers:Int
+    }
 `;

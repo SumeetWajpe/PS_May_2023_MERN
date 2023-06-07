@@ -36,3 +36,21 @@ fragment courseTitleWithPrice on Course{
     title
     price
 }
+
+================== CoursesWithTrainer ==============
+query CourseWithTrainer {
+
+  courses {
+    id
+    title
+    price
+    rating
+    likes
+    imageUrl
+    description
+    trainer {
+      name
+      avatarUrl
+    }
+  }
+}
