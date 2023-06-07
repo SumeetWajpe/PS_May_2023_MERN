@@ -1,13 +1,21 @@
-
+import { useMutation } from "@apollo/client";
 import { CourseModel } from "../models/course.model";
 import Rating from "./rating.component";
-
+import { DELETE_COURSE_MUTATION } from "../graphql/mutations";
+import { GET_ALL_COURSES } from "../graphql/querries";
 
 type CourseProps = {
   coursedetails: CourseModel;
 };
 
 export default function Course(props: CourseProps): JSX.Element {
+  let [deleteACourse, { error, loading, data }] = useMutation(
+    DELETE_COURSE_MUTATION,
+    {
+      variables: { deleteCourseId: props.coursedetails.id },
+      refetchQueries: [{ query: GET_ALL_COURSES }],
+    },
+  );
   return (
     <div className="col-md-3">
       <div className="card m-2 p-2">
@@ -37,7 +45,10 @@ export default function Course(props: CourseProps): JSX.Element {
               {props.coursedetails.likes}{" "}
               <i className="fa-regular fa-thumbs-up"></i>
             </button>
-            <button className="btn btn-danger mx-1">
+            <button
+              className="btn btn-danger mx-1"
+              onClick={() => deleteACourse()}
+            >
               <i className="fa-solid fa-trash"></i>
             </button>
             <div>

@@ -6,7 +6,7 @@ import { CourseModel } from "../models/course.model";
 
 export default function ListOfCourses() {
   let { loading, error, data } = useQuery(GET_ALL_COURSES, {
-    fetchPolicy: "network-only",
+    // fetchPolicy: "network-only",
   });
 
   if (loading) return <strong>Loading...</strong>;
