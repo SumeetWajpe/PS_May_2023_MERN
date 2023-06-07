@@ -21,3 +21,18 @@ query GetCoursesById {
     title
   }
 }
+============== Using Fragments ================
+
+query GetCoursesById {
+  firstcourse:course(id:1) {
+   ...courseTitleWithPrice
+  }
+  secondcourse:course(id:2) {
+   ...courseTitleWithPrice
+  }
+}
+
+fragment courseTitleWithPrice on Course{
+    title
+    price
+}
